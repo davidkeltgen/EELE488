@@ -12,7 +12,7 @@
 #include <string.h>
 
 
-#define  FILEPATH   "/etc/hps_log.txt"
+#define  FILEPATH   "hps_log.txt"
 
 void record(const char* message);
 

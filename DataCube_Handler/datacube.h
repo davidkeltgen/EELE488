@@ -23,10 +23,10 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  DARK_BINARY_PATH         "/resonon/input/dark/darkCube.bil"
-#define  DARK_HEADER_PATH         "/resonon/input/dark/darkCube.bil.hdr"
-#define  RESPONSE_BINARY_PATH     "/resonon/input/response/responseCube.bil"
-#define  RESPONSE_HEADER_PATH     "/resonon/input/response/responseCube.bil.hdr"
+#define  DARK_BINARY_PATH         "resonon/input/dark/darkCube.bil"
+#define  DARK_HEADER_PATH         "resonon/input/dark/darkCube.bil.hdr"
+#define  RESPONSE_BINARY_PATH     "resonon/input/response/responseCube.bil"
+#define  RESPONSE_HEADER_PATH     "resonon/input/response/responseCube.bil.hdr"
 
 #define  BIP                      "bip"
 #define  BIL                      "bil"
@@ -75,10 +75,12 @@ datacube * response_cube;
 /*NOTE: need to create 16 bit datatype to make this program portable*/
 /* dark matrix */
 int *** dark_matrix;
-
 /* response matrix */
-
 int *** response_matrix;
+
+uint16_t *** temp_matrix;
+
+
 
 
 int parseHdr(int cube_type);

@@ -12,30 +12,33 @@
 
 #include "main.h"
 
-
 int main(int argc, char** argv) {
+    printf("Starting.....\n");
     record("program started\n");
     int var;
-    /* Parse the header file for dark. */
-    var = parseHdr(dark);
+
+    var = parseHdr(dark);                                                       /* Parse the header file for dark. */
     if (var == 0) {
         record("Dark datacube parsed correctly.\n");
         printHdr(dark);
-        /* Parse the binary file. */
-        parseBin(dark);
+        parseBin(dark); /* Parse the binary file. */
 
     } else {
         record("Dark datacube did not parse correctly!\n");
     }
 
-    /* Parse the header file for response. */
-    var = parseHdr(response);
+
+    var = parseHdr(response); /* Parse the header file for response. */
 
     if (var == 0) {
         record("Response datacube parsed correctly.\n");
         printHdr(response);
-        /* Parse the binary file. */
-        parseBin(response);
+
+
+        var = parseBin(response); /* Parse the binary file. */
+        if (var == 1) {
+
+        }
     } else {
         record("Response datacube did not parse correctly!\n");
     }
