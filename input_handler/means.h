@@ -1,12 +1,12 @@
 /* 
- * File:   stats.h
- * Author: david
+ * File:   classification.h
+ * Author: David Keltgen
  *
- * Created on November 10, 2014, 1:41 PM
+ * Created on January 3, 2015, 5:35 PM
  */
 
-#ifndef STATS_H
-#define	STATS_H
+#ifndef MEANS_H
+#define	MEANS_H
 
 /*
 *********************************************************************************************************
@@ -21,7 +21,7 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  STATS_PATH         "resonon/input/stats/stat.txt"
+#define  CLASSIFICATION_PATH         "resonon/input/class/class.txt"
 
 /* global vars */
 
@@ -31,5 +31,4 @@ int ** class_matrix;
 /* prototypes */
 int parseClassParams(void);
 
-#endif	/* STATS_H */
-
+#endif	/* CLASSIFICATION_H */

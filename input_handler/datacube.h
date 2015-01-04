@@ -80,7 +80,7 @@ uint16_t *** temp_matrix;
 
 
 
-
+/* prototypes */
 int parseHdr(int cube_type);
 int parseBin(int cube_type);
 void printHdr(int cube_type);

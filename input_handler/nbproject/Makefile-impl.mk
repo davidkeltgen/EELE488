@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=DataCube_Handler
+PROJECTNAME=input_handler
 
 # Active Configuration
 DEFAULTCONF=Debug

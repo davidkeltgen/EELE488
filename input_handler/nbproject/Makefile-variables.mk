@@ -9,11 +9,11 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=datacube_handler
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/datacube_handler
+CND_ARTIFACT_NAME_Debug=input_handler
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/input_handler
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=datacubehandler.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/datacubehandler.tar
+CND_PACKAGE_NAME_Debug=inputhandler.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/inputhandler.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86

@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/datacube.o \
 	${OBJECTDIR}/logger.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/means.o \
 	${OBJECTDIR}/stats.o
 
 
@@ -60,11 +61,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datacube_handler.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/input_handler.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datacube_handler.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/input_handler.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datacube_handler ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/input_handler ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/classification.o: classification.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -86,6 +87,11 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
+${OBJECTDIR}/means.o: means.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/means.o means.c
+
 ${OBJECTDIR}/stats.o: stats.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -97,7 +103,7 @@ ${OBJECTDIR}/stats.o: stats.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datacube_handler.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/input_handler.exe
 
 # Subprojects
 .clean-subprojects:

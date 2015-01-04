@@ -8,7 +8,7 @@
 *********************************************************************************************************
 */ 
 
-#include <stdio.h>
+#include "system.h"
 #include "logger.h"
 
 /* Filepaths for datacube files. */

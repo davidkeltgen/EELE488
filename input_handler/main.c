@@ -7,8 +7,7 @@
  *              the different file types need to be sent to the FPGA.                           *  
  ****************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
+
 
 #include "main.h"
 
@@ -42,6 +41,12 @@ int main(int argc, char** argv) {
     } else {
         record("Response datacube did not parse correctly!\n");
     }
+    
+    parseClassParams();
+    
+    parseMeans();
+    
+    parseStandards();
 
     /* Send matrices over DMA */
 
