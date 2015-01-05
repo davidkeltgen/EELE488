@@ -1,13 +1,13 @@
 /****************************************************************************
  * Author: David Keltgen                                                    *
  * Company: Montana State University                                        *
- * File Name: means.h                                                   *
+ * File Name: standards.h                                                   *
  * Date:  January 3 2015                                                    *
  * Description:          *                                           *
  ****************************************************************************/
 
-#ifndef MEANS_H
-#define	MEANS_H
+#ifndef STANDARDS_H
+#define	STANDARDS_H
 
 /*
 *********************************************************************************************************
@@ -22,14 +22,15 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  MEANS_PATH         "resonon/input/means/mean.txt"
+#define  STANDARDS_PATH         "resonon/input/standards/standard.txt"
 
 /* global vars */
 
 /* 2D classification matrix*/
-int * means_matrix;
+int * standards_matrix;
 
 /* prototypes */
-int parseMeans(void);
+int parseStandards(void);
 
-#endif	/* CLASSIFICATION_H */
+#endif	/* STANDARDS_H */
+

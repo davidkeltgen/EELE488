@@ -10,6 +10,9 @@
 
 #include "system.h"
 #include "logger.h"
+#include "means.h"
+#include "standards.h"
+#include "classification.h"
 
 /* Filepaths for datacube files. */
 /* For now, just starting with one response cube and one dark cube

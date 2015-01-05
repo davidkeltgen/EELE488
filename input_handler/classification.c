@@ -13,9 +13,10 @@ int parseClassParams() {
     record("inside parseClassParams\n");
     
     FILE* file;
-    int class_size = 1089;
-    int num_classes = 50;
+    int class_size = 1089;  /*Could be read in from header file */
+    int num_classes = 50;   /*Could be read in from header file */
     int i, j, var;
+    char c1,c2,c3,c4;
      
     /*Allocate space for class parameters*/
     class_matrix = (int **) malloc(num_classes * class_size * sizeof (int));
@@ -24,12 +25,10 @@ int parseClassParams() {
         class_matrix[i] = (int *) malloc(num_classes * sizeof(int));
     }
     
-    
     file = fopen(CLASSIFICATION_PATH, "r");
     printf("%s  %d\n", CLASSIFICATION_PATH, file);
-    char c1,c2,c3,c4;
+    
     var = 0;
-    int var2;
     for(i = 0; i < class_size; i++)
     {
         for(j = 0; j < num_classes; j++)
@@ -44,25 +43,9 @@ int parseClassParams() {
             var = var + c4;
             var = var >> 24;
             class_matrix[i][j] = var;
-            if(i < 10)
-            {
-            //printf("%c %c %c %c ", c1,c2,c3,c4);
-            //printf("%d %d\n", var, class_matrix[i][j]);
-            }
         }
-        //printf("\n");
     }
     
-    /*Print value to verify it read properly*/
-    for(i = 0; i < class_size; i++)
-    {
-        for(j = 0; j < num_classes; j++)
-        {
-            if(i < 10)
-            {
-            printf("%d ",class_matrix[i][j]);
-            }
-        }
-        printf("\n");
-    }
+    
+
 }

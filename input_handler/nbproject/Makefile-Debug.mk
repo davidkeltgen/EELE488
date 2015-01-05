@@ -40,7 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/logger.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/means.o \
-	${OBJECTDIR}/stats.o
+	${OBJECTDIR}/standards.o
 
 
 # C Compiler Flags
@@ -92,10 +92,10 @@ ${OBJECTDIR}/means.o: means.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/means.o means.c
 
-${OBJECTDIR}/stats.o: stats.c 
+${OBJECTDIR}/standards.o: standards.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/stats.o stats.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/standards.o standards.c
 
 # Subprojects
 .build-subprojects:

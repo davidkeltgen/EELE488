@@ -13,8 +13,8 @@
 
 int main(int argc, char** argv) {
     printf("Starting.....\n");
-    record("program started\n");
-    int var;
+    record("Program started.\n");
+    int var, i;
 
     var = parseHdr(dark);                                                       /* Parse the header file for dark. */
     if (var == 0) {
@@ -47,6 +47,15 @@ int main(int argc, char** argv) {
     parseMeans();
     
     parseStandards();
+    
+    printf("Printing off parsed values\n");
+    
+    printf("means and standard devation and classification paramters...\n");
+    for (i = 65; i < 91; i++)
+    {
+        printf("%d %d %d\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
+    }
+    
 
     /* Send matrices over DMA */
 

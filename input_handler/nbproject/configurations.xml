@@ -9,7 +9,7 @@
       <itemPath>logger.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>means.h</itemPath>
-      <itemPath>stats.h</itemPath>
+      <itemPath>standards.h</itemPath>
       <itemPath>system.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -24,7 +24,7 @@
       <itemPath>logger.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>means.c</itemPath>
-      <itemPath>stats.c</itemPath>
+      <itemPath>standards.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -68,9 +68,9 @@
       </item>
       <item path="means.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="stats.c" ex="false" tool="0" flavor2="0">
+      <item path="standards.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="stats.h" ex="false" tool="3" flavor2="0">
+      <item path="standards.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="system.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -115,9 +115,9 @@
       </item>
       <item path="means.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="stats.c" ex="false" tool="0" flavor2="0">
+      <item path="standards.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="stats.h" ex="false" tool="3" flavor2="0">
+      <item path="standards.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="system.h" ex="false" tool="3" flavor2="0">
       </item>

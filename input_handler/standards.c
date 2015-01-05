@@ -1,30 +1,30 @@
 /****************************************************************************
  * Author: David Keltgen                                                    *
  * Company: Montana State University                                        *
- * File Name: means.c                                                       *
+ * File Name: standards.c                                                   *
  * Date:  January 3 2015                                                    *
- * Description:        *
+ * Description:                                                         *
  ****************************************************************************/
 
-#include "means.h"
+#include "standards.h"
 
-int parseMeans() {
+int parseStandards() {
     
-    record("Inside parse means\n");
+    record("Inside parse standards\n");
     
     FILE* file;
-    int means_size = 1088;  /*Could be read in from header file */
+    int standards_size = 1088;  /*Could be read in from header file */
     int i, var;
     char c1,c2,c3,c4;
     
     /*Allocate space for class parameters*/
-    means_matrix = (int *) malloc(means_size * sizeof (int));/*Allocate space for class parameters*/
+    standards_matrix = (int *) malloc(standards_size * sizeof (int));/*Allocate space for class parameters*/
 
-    file = fopen(MEANS_PATH, "r");
-    printf("File info: %s  %d\n", MEANS_PATH, file);
+    file = fopen(STANDARDS_PATH, "r");
+    printf("%s  %d\n", STANDARDS_PATH, file);
     
     var = 0;
-    for(i = 0; i < means_size; i++)
+    for(i = 0; i < standards_size; i++)
     {
         fscanf(file, "%c%c%c%c", &c1,&c2,&c3,&c4);
         var = c1;                               /* Set to first character */ 
@@ -35,6 +35,8 @@ int parseMeans() {
         var = var << 8;                         /* Shift var over 8 */                    
         var = var + c4;
         var = var >> 24;
-        means_matrix[i] = var;
+        standards_matrix[i] = var;
+        
+        
     }
 }
