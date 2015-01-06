@@ -1,0 +1,24 @@
+14:05:19 **** Build of configuration Default for project input_handler ****
+make all 
+make -C input_handler
+make[1]: Entering directory `D:/David/c_code/input_handler_ds5/input_handler'
+Makefile:56: warning: overriding commands for target `all'
+Makefile:25: warning: ignoring old commands for target `all'
+Makefile:59: warning: overriding commands for target `clean'
+Makefile:28: warning: ignoring old commands for target `clean'
+Makefile:87: warning: overriding commands for target `all'
+Makefile:56: warning: ignoring old commands for target `all'
+Makefile:90: warning: overriding commands for target `clean'
+Makefile:59: warning: ignoring old commands for target `clean'
+arm-linux-gnueabihf-gcc -g -O0 -Werror -Wall -lpthread -c logger.c -o logger.o
+Makefile:118: warning: overriding commands for target `all'
+Makefile:87: warning: ignoring old commands for target `all'
+Makefile:121: warning: overriding commands for target `clean'
+Makefile:90: warning: ignoring old commands for target `clean'
+arm-linux-gnueabihf-gcc -g -O0 -Werror -Wall -lpthread logger.o -o logger 
+d:/altera/14.0/embedded/ds-5/sw/gcc/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o: In function `_start':
+make[1]: Leaving directory `D:/David/c_code/input_handler_ds5/input_handler'
+:(.text+0x28): undefined reference to `main'
+collect2.exe: error: ld returned 1 exit status
+make[1]: *** [logger] Error 1
+make: *** [all] Error 2

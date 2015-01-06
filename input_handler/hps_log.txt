@@ -60,3 +60,19 @@
 [13:30:32:070]  : inside parseClassParams
 [13:30:32:101]  : Inside parse means
 [13:30:32:102]  : Inside parse standards
+[15:38:09:988]  : Program started.
+[15:38:09:988]  : inside parseHdr
+[15:38:09:989]  : resonon/input/dark/darkCube.bil.hdr  296136
+[15:38:09:989]  : Dark datacube parsed correctly.
+[15:38:09:989]  : inside printHdr
+[15:38:09:990]  : inside parseBin
+[15:38:11:848]  : Counter is: 0, Num_values: 4608000
+[15:38:11:848]  : inside parseHdr
+[15:38:11:848]  : resonon/input/response/responseCube.bil.hdr  296504
+[15:38:11:848]  : Response datacube parsed correctly.
+[15:38:11:848]  : inside printHdr
+[15:38:11:850]  : inside parseBin
+[15:38:13:654]  : Counter is: 0, Num_values: 4608000
+[15:38:13:654]  : inside parseClassParams
+[15:38:13:686]  : Inside parse means
+[15:38:13:688]  : Inside parse standards
