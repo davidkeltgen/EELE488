@@ -21,12 +21,15 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  CLASSIFICATION_PATH         "resonon/input/class/class.txt"
+#define  CLASSIFICATION_PATH         "/resonon/input/class/class.csv"
 
 /* global vars */
 
 /* 2D classification matrix*/
 int ** class_matrix;
+
+int class_size;   /*Could be read in from header file */
+int num_classes;   /*Could be read in from header file */
 
 /* prototypes */
 int parseClassParams(void);

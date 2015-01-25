@@ -13,10 +13,12 @@ int parseClassParams() {
     record("inside parseClassParams\n");
     
     FILE* file;
-    int class_size = 1089;  /*Could be read in from header file */
-    int num_classes = 50;   /*Could be read in from header file */
-    int i, j, var;
+    int i, j;
+    double var;
     char c1,c2,c3,c4;
+    
+    class_size= 1089;
+    num_classes = 50; 
      
     /*Allocate space for class parameters*/
     class_matrix = (int **) malloc(num_classes * class_size * sizeof (int));
@@ -33,23 +35,22 @@ int parseClassParams() {
     {
         for(j = 0; j < num_classes; j++)
         {
-            fscanf(file, "%c%c%c%c", &c1,&c2,&c3,&c4);
-            var = c1;                               /* Set to first character */ 
-            var = var << 8;                         /* Shift var over 8 */                    
-            var = var + c2;                         /* Add second character to var (LS 8 bits)*/
-            var = var << 8;                         /* Shift var over 8 */                    
-            var = var + c3;
-            var = var << 8;                         /* Shift var over 8 */                    
-            var = var + c4;
-            var = var >> 24;
-            class_matrix[i][j] = var;
-            if(i < 2 && (j > 65 && j < 91))
-            {
-             printf("%c%c%c%c %d %d\n",c1,c2,c3,c4, class_matrix[i][j], var);
-            }
+        fscanf(file, "%lf,", &var);
+        class_matrix[i][j] = var;
+        //printf("class %lf\n",var);
         }
     }
     
+        /*Convert the value to fixed*/
+    for(i = 0; i < class_size; i++)
+    {
+        for(j = 0; j < num_classes; j++)
+        {
+            //float2fixed(class_matrix[i][j], class_fixed[i][j]);
+        }
+    }
+    
+    //free the raw value matrix
     return 0;
 
     

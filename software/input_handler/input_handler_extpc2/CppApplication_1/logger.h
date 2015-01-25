@@ -8,9 +8,7 @@
 #ifndef LOGGER_H
 #define	LOGGER_H
 
-#include <stdio.h>
-#include <string.h>
-
+#include "system.h"
 
 #define  FILEPATH   "hps_log.txt"
 

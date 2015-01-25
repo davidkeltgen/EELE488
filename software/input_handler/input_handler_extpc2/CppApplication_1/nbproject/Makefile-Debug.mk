@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/classification.o \
 	${OBJECTDIR}/datacube.o \
+	${OBJECTDIR}/handler_funcs.o \
 	${OBJECTDIR}/logger.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/means.o \
@@ -76,6 +77,11 @@ ${OBJECTDIR}/datacube.o: datacube.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/datacube.o datacube.c
+
+${OBJECTDIR}/handler_funcs.o: handler_funcs.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/handler_funcs.o handler_funcs.c
 
 ${OBJECTDIR}/logger.o: logger.c 
 	${MKDIR} -p ${OBJECTDIR}

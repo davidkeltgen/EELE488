@@ -62,3 +62,123 @@
 [15:37:10:432]  : inside parseClassParams
 [15:37:10:439]  : Inside parse means
 [15:37:10:441]  : Inside parse standards
+[13:21:06:548]  : Program started.
+[13:21:06:548]  : inside parseHdr
+[13:21:06:548]  : resonon/input/dark/darkCube.bil.hdr  145670152
+[13:21:06:569]  : Dark datacube parsed correctly.
+[13:21:06:569]  : inside printHdr
+[13:21:06:569]  : inside parseBin
+[13:22:03:171]  : Program started.
+[13:22:03:171]  : inside parseHdr
+[13:22:03:171]  : resonon/input/dark/darkCube.bil.hdr  139161608
+[13:22:03:172]  : Dark datacube parsed correctly.
+[13:22:03:172]  : inside printHdr
+[13:22:03:172]  : inside parseBin
+[13:23:04:617]  : Counter is: 0, Num_values: 4608000
+[13:23:04:617]  : inside parseHdr
+[13:23:04:617]  : resonon/input/response/responseCube.bil.hdr  157797672
+[13:23:04:617]  : Response datacube parsed correctly.
+[13:23:04:617]  : inside printHdr
+[13:23:04:617]  : inside parseBin
+[13:23:40:670]  : Program started.
+[13:23:44:807]  : inside parseHdr
+[13:23:44:807]  : resonon/input/dark/darkCube.bil.hdr  134533128
+[13:23:44:808]  : Dark datacube parsed correctly.
+[13:23:44:808]  : inside printHdr
+[13:23:44:809]  : inside parseBin
+[13:24:39:589]  : Program started.
+[13:24:39:589]  : inside parseHdr
+[13:24:39:589]  : resonon/input/dark/darkCube.bil.hdr  152039432
+[13:24:39:589]  : Dark datacube parsed correctly.
+[13:24:39:589]  : inside printHdr
+[13:24:39:590]  : inside parseBin
+[13:24:40:166]  : Counter is: 0, Num_values: 4608000
+[13:24:40:166]  : inside parseHdr
+[13:24:40:166]  : resonon/input/response/responseCube.bil.hdr  170675496
+[13:24:40:166]  : Response datacube parsed correctly.
+[13:24:40:166]  : inside printHdr
+[13:24:40:167]  : inside parseBin
+[13:24:40:688]  : Counter is: 0, Num_values: 4608000
+[13:24:40:688]  : Inside parse means
+[13:24:40:700]  : Inside parse standards
+[13:24:40:712]  : inside parseClassParams
+[13:26:06:281]  : Program started.
+[13:26:06:281]  : inside parseHdr
+[13:26:06:281]  : resonon/input/dark/darkCube.bil.hdr  149954568
+[13:26:06:282]  : Dark datacube parsed correctly.
+[13:26:06:282]  : inside printHdr
+[13:26:06:282]  : inside parseBin
+[13:26:06:911]  : Counter is: 0, Num_values: 4608000
+[13:26:06:911]  : inside parseHdr
+[13:26:06:912]  : resonon/input/response/responseCube.bil.hdr  168590632
+[13:26:06:912]  : Response datacube parsed correctly.
+[13:26:06:912]  : inside printHdr
+[13:26:06:913]  : inside parseBin
+[13:26:07:460]  : Counter is: 0, Num_values: 4608000
+[13:26:07:460]  : Inside parse means
+[13:26:07:475]  : Inside parse standards
+[13:26:07:487]  : inside parseClassParams
+[13:26:35:482]  : Program started.
+[13:26:35:482]  : inside parseHdr
+[13:26:35:482]  : resonon/input/dark/darkCube.bil.hdr  146173960
+[13:26:35:482]  : Dark datacube parsed correctly.
+[13:26:35:482]  : inside printHdr
+[13:26:35:482]  : inside parseBin
+[13:26:36:045]  : Counter is: 0, Num_values: 4608000
+[13:26:36:045]  : inside parseHdr
+[13:26:36:045]  : resonon/input/response/responseCube.bil.hdr  164810024
+[13:26:36:045]  : Response datacube parsed correctly.
+[13:26:36:045]  : inside printHdr
+[13:26:36:054]  : inside parseBin
+[13:26:36:604]  : Counter is: 0, Num_values: 4608000
+[13:26:36:604]  : Inside parse means
+[13:26:36:605]  : Inside parse standards
+[13:26:36:619]  : inside parseClassParams
+[13:26:46:822]  : Program started.
+[13:26:46:822]  : inside parseHdr
+[13:26:46:822]  : resonon/input/dark/darkCube.bil.hdr  146731016
+[13:26:46:822]  : Dark datacube parsed correctly.
+[13:26:46:822]  : inside printHdr
+[13:26:46:823]  : inside parseBin
+[13:26:47:455]  : Counter is: 0, Num_values: 4608000
+[13:26:47:455]  : inside parseHdr
+[13:26:47:455]  : resonon/input/response/responseCube.bil.hdr  165367080
+[13:26:47:455]  : Response datacube parsed correctly.
+[13:26:47:455]  : inside printHdr
+[13:26:47:455]  : inside parseBin
+[13:26:47:988]  : Counter is: 0, Num_values: 4608000
+[13:26:47:988]  : Inside parse means
+[13:26:47:988]  : Inside parse standards
+[13:26:48:000]  : inside parseClassParams
+[13:32:39:175]  : Program started.
+[13:32:39:175]  : inside parseHdr
+[13:32:39:175]  : resonon/input/dark/darkCube.bil.hdr  166641672
+[13:32:39:176]  : Dark datacube parsed correctly.
+[13:32:39:176]  : inside printHdr
+[13:32:39:176]  : inside parseBin
+[13:32:39:769]  : Counter is: 0, Num_values: 4608000
+[13:32:39:769]  : inside parseHdr
+[13:32:39:769]  : resonon/input/response/responseCube.bil.hdr  185277736
+[13:32:39:769]  : Response datacube parsed correctly.
+[13:32:39:769]  : inside printHdr
+[13:32:39:771]  : inside parseBin
+[13:32:40:326]  : Counter is: 0, Num_values: 4608000
+[13:32:40:326]  : Inside parse means
+[13:32:40:326]  : Inside parse standards
+[13:32:40:340]  : inside parseClassParams
+[13:32:57:715]  : Program started.
+[13:32:57:715]  : inside parseHdr
+[13:32:57:715]  : resonon/input/dark/darkCube.bil.hdr  150204424
+[13:32:57:716]  : Dark datacube parsed correctly.
+[13:32:57:716]  : inside printHdr
+[13:32:57:716]  : inside parseBin
+[13:32:58:274]  : Counter is: 0, Num_values: 4608000
+[13:32:58:274]  : inside parseHdr
+[13:32:58:274]  : resonon/input/response/responseCube.bil.hdr  168840488
+[13:32:58:274]  : Response datacube parsed correctly.
+[13:32:58:274]  : inside printHdr
+[13:32:58:275]  : inside parseBin
+[13:32:58:829]  : Counter is: 0, Num_values: 4608000
+[13:32:58:829]  : Inside parse means
+[13:32:58:830]  : Inside parse standards
+[13:32:58:842]  : inside parseClassParams

@@ -22,12 +22,15 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  STANDARDS_PATH         "resonon/input/standards/standard.txt"
+#define  STANDARDS_PATH         "/resonon/input/standards/standard.csv"
+
+#define  STANDARDS_BASE_ADDRESS
 
 /* global vars */
 
 /* 2D classification matrix*/
 int * standards_matrix;
+int standards_size; /*Could be read in from header file */
 
 /* prototypes */
 int parseStandards(void);

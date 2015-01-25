@@ -14,7 +14,7 @@
 int main(int argc, char** argv) {
     printf("Starting.....\n");
     record("Program started.\n");
-    int var, i;
+    int var, i, j;
 
     var = parseHdr(dark);                                                       /* Parse the header file for dark. */
     if (var == 0) {
@@ -42,22 +42,43 @@ int main(int argc, char** argv) {
         record("Response datacube did not parse correctly!\n");
     }
     
-    parseClassParams();
-    
     parseMeans();
     
     parseStandards();
     
+    parseClassParams();
+    
     printf("Printing off parsed values\n");
     
-    printf("means and standard devation and classification paramters...\n");
-    for (i = 65; i < 91; i++)
+    printf("means and standard deviation and classification parameters(first row)...\n");
+    for (i = 0; i < 50; i++)
     {
         printf("%d %d %d\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
     }
     
 
-    /* Send matrices over DMA */
+    /* Send means, standard deviation and coefficient matrices over the bridge */
+    
+    for(i = 0; i < means_size;i++)
+    {
+        //means_fixed[i].final_value;
+    }
+    
+    
+    for(i = 0; i < standards_size;i++)
+    {
+        //standards_fixed[i].final_value;
+    }
+    
+    for(i = 0; i < class_size;i++)
+    {
+        //standards_fixed[i].final_value;
+        for(j = 0; j < num_classes;j++)
+        {
+            //class_fixed[i][j];
+        }
+    }
+    
 
 
     return (EXIT_SUCCESS);

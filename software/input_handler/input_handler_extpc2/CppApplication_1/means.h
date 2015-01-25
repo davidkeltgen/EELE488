@@ -22,12 +22,19 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  MEANS_PATH         "resonon/input/means/mean.txt"
+#define  MEANS_PATH         "/resonon/input/means/mean.csv"
+
+#define  MEAN_BASE_ADDRESS 
 
 /* global vars */
 
 /* 2D classification matrix*/
-int * means_matrix;
+double * means_matrix;
+int means_size;  /*Could be read in from header file */
+
+
+
+//struct fixed * means_fixed; 
 
 /* prototypes */
 int parseMeans(void);

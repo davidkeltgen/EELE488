@@ -8,7 +8,7 @@
  *              Writes to the FILEPATH variable defined in logger.h                                                    *
  ****************************************************************************/
 
-#include <string.h>
+
 #include "datacube.h"
 
 int parseHdr(int cube_type) {
@@ -167,7 +167,7 @@ int parseBin(int cube_type) {
                     var = var << 8;                         /* Shift var over 8 */                    
                     var = var + c2;                         /* Add second character to var (LS 8 bits)*/
                     temp_matrix[i][j][k] = var;             /* Store it to matrix */
-                    printf("%d\n", var);
+                    //printf("datacube: %d\n", var);
 
                 }
             }
