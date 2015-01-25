@@ -15,7 +15,7 @@ int parseClassParams() {
     FILE* file;
     int i, j;
     double var;
-    char c1,c2,c3,c4;
+    //char c1,c2,c3,c4;
     
     class_size= 1089;
     num_classes = 50; 
@@ -65,6 +65,7 @@ int parseClassParams() {
     }
     
     //free the raw value matrix
+    for
     return 0;
 
     
