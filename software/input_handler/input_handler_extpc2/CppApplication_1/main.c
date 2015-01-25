@@ -79,6 +79,8 @@ int main(int argc, char** argv) {
         }
     }
     
+    // send datacube values
+    
 
 
     return (EXIT_SUCCESS);
