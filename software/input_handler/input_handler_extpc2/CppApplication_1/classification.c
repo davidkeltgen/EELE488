@@ -65,7 +65,10 @@ int parseClassParams() {
     }
     
     //free the raw value matrix
-    for
+        for(i = 0; i < class_size; i++)
+    {
+        class_matrix[i] = (double *) malloc(num_classes * sizeof(double));
+    }
     return 0;
 
     

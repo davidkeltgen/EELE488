@@ -72,11 +72,11 @@ datacube * response_cube;
 
 /*NOTE: need to create 16 bit datatype to make this program portable*/
 /* dark matrix */
-uint16_t *** dark_matrix;
+uint32_t *** dark_matrix;
 /* response matrix */
-uint16_t *** response_matrix;
+uint32_t *** response_matrix;
 
-uint16_t *** temp_matrix;
+uint32_t *** temp_matrix;
 
 
 

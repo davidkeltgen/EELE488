@@ -120,11 +120,11 @@ int parseBin(int cube_type) {
         temp_cube = dark_cube;
         
         num_values = dark_cube->lines * dark_cube->bands * dark_cube->samples;
-        dark_matrix = (uint16_t ***) malloc(num_values * sizeof (uint16_t));
+        dark_matrix = (uint32_t ***) malloc(num_values * sizeof (uint16_t));
         for (i = 0; i < dark_cube->lines; i++) {
-            dark_matrix[i] = (uint16_t **) malloc(dark_cube->bands * sizeof (uint16_t *));
+            dark_matrix[i] = (uint32_t **) malloc(dark_cube->bands * sizeof (uint16_t *));
             for (j = 0; j < temp_cube->bands; j++) {
-                dark_matrix[i][j] = (uint16_t *) malloc(dark_cube->samples * sizeof (uint16_t));
+                dark_matrix[i][j] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint16_t));
             }
         }
     } else if (cube_type == response) {
@@ -143,11 +143,11 @@ int parseBin(int cube_type) {
     num_values = temp_cube->lines * temp_cube->bands * temp_cube->samples;
     printf("num_values: %d\n", num_values);
 
-    temp_matrix = (uint16_t ***) malloc(num_values * sizeof (uint16_t));
+    temp_matrix = (uint32_t ***) malloc(num_values * sizeof (uint16_t));
     for (i = 0; i < temp_cube->lines; i++) {
-        temp_matrix[i] = (uint16_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
+        temp_matrix[i] = (uint32_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
         for (j = 0; j < temp_cube->bands; j++) {
-            temp_matrix[i][j] = (uint16_t *) malloc(temp_cube->samples * sizeof (uint16_t));
+            temp_matrix[i][j] = (uint32_t *) malloc(temp_cube->samples * sizeof (uint16_t));
         }
     }
 

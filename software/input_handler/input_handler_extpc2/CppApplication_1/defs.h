@@ -21,7 +21,7 @@ classes
 struct fixed {
     int integer;
     float fraction;
-    int final_value;
+    uint32_t final_value;
     int type;
 };
 
