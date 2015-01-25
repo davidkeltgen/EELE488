@@ -29,7 +29,7 @@
 /* global vars */
 
 /* 2D classification matrix*/
-int * standards_matrix;
+double * standards_matrix;
 int standards_size; /*Could be read in from header file */
 
 /* prototypes */

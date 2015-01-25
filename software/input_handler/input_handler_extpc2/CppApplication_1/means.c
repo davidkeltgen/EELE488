@@ -47,10 +47,12 @@ int parseMeans() {
     }
     close(file);
     
+    float2fixed(means_matrix[1001], means_fixed[1001]);
+    
     /*Convert the value to fixed*/
     for(i = 0; i < means_size; i++)
     {
-        float2fixed(means_matrix[i], means_fixed[i]);
+        //float2fixed(means_matrix[i], means_fixed[i]);
     }
     
     //free the raw value matrix....

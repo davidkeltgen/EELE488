@@ -21,11 +21,11 @@ int parseStandards() {
     standards_size = 1088;
 
     /*Allocate space for class parameters*/
-    standards_matrix = (int *) malloc(standards_size * sizeof (int)); /*Allocate space for class parameters*/
+    standards_matrix = (double *) malloc(standards_size * sizeof (double)); /*Allocate space for class parameters*/
     struct fixed standards_fixed[standards_size];
     
     file = fopen(STANDARDS_PATH, "r");
-    printf("%s  %d\n", STANDARDS_PATH, file);
+    printf("%s  %d\n", STANDARDS_PATH, (int)file);
 
     for (i = 0; i < standards_size; i++) {
         if (i == standards_size - 1) {
@@ -38,18 +38,20 @@ int parseStandards() {
             standards_fixed[i].type = standards;
         }
 
-        printf("standard: %lf\n", var);
+        //printf("standard: %lf\n", var);
     }
 
-close(file);
+    close(file);
+    
+    float2fixed(standards_matrix[1001], standards_fixed[1001]);
 
     /*Convert the value to fixed*/
     for(i = 0; i < standards_size; i++)
     {
-        float2fixed(standards_matrix[i], standards_fixed[i]);
+        //float2fixed(standards_matrix[i], standards_fixed[i]);
     }
 
-//free the raw value matrix
-free(standards_matrix);
-return 0;
+    //free the raw value matrix
+    free(standards_matrix);
+    return 0;
 }

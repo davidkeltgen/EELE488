@@ -26,7 +26,7 @@
 /* global vars */
 
 /* 2D classification matrix*/
-int ** class_matrix;
+double ** class_matrix;
 
 int class_size;   /*Could be read in from header file */
 int num_classes;   /*Could be read in from header file */

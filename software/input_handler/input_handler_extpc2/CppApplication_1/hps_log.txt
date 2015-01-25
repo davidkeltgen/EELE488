@@ -182,3 +182,50 @@
 [13:32:58:829]  : Inside parse means
 [13:32:58:830]  : Inside parse standards
 [13:32:58:842]  : inside parseClassParams
+[15:21:17:324]  : Program started.
+[15:21:17:324]  : inside parseHdr
+[15:21:17:324]  : resonon/input/dark/darkCube.bil.hdr  143257608
+[15:21:17:325]  : Dark datacube parsed correctly.
+[15:21:17:325]  : inside printHdr
+[15:21:17:325]  : inside parseBin
+[15:21:17:865]  : Counter is: 0, Num_values: 4608000
+[15:21:17:865]  : inside parseHdr
+[15:21:17:865]  : resonon/input/response/responseCube.bil.hdr  161893672
+[15:21:17:865]  : Response datacube parsed correctly.
+[15:21:17:865]  : inside printHdr
+[15:21:17:866]  : inside parseBin
+[15:21:18:394]  : Counter is: 0, Num_values: 4608000
+[15:21:18:394]  : Inside parse means
+[15:21:18:394]  : Inside parse standards
+[15:21:18:411]  : inside parseClassParams
+[15:28:39:488]  : Program started.
+[15:28:39:488]  : inside parseHdr
+[15:28:39:488]  : resonon/input/dark/darkCube.bil.hdr  138379272
+[15:28:39:488]  : Dark datacube parsed correctly.
+[15:28:39:489]  : inside printHdr
+[15:28:39:489]  : inside parseBin
+[15:28:40:061]  : Counter is: 0, Num_values: 4608000
+[15:28:40:062]  : inside parseHdr
+[15:28:40:062]  : resonon/input/response/responseCube.bil.hdr  157015336
+[15:28:40:062]  : Response datacube parsed correctly.
+[15:28:40:062]  : inside printHdr
+[15:28:40:062]  : inside parseBin
+[15:28:40:633]  : Counter is: 0, Num_values: 4608000
+[15:28:40:634]  : Inside parse means
+[15:28:40:634]  : Inside parse standards
+[15:28:50:633]  : Program started.
+[15:28:50:633]  : inside parseHdr
+[15:28:50:633]  : resonon/input/dark/darkCube.bil.hdr  155652104
+[15:28:50:633]  : Dark datacube parsed correctly.
+[15:28:50:633]  : inside printHdr
+[15:28:50:634]  : inside parseBin
+[15:28:51:187]  : Counter is: 0, Num_values: 4608000
+[15:28:51:187]  : inside parseHdr
+[15:28:51:187]  : resonon/input/response/responseCube.bil.hdr  174288168
+[15:28:51:187]  : Response datacube parsed correctly.
+[15:28:51:187]  : inside printHdr
+[15:28:51:188]  : inside parseBin
+[15:28:51:770]  : Counter is: 0, Num_values: 4608000
+[15:28:51:770]  : Inside parse means
+[15:28:51:771]  : Inside parse standards
+[15:28:51:771]  : inside parseClassParams

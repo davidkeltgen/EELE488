@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     printf("means and standard deviation and classification parameters(first row)...\n");
     for (i = 0; i < 50; i++)
     {
-        printf("%d %d %d\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
+        printf("%lf %lf %lf\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
     }
     
 
