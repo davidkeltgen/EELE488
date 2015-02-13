@@ -1,0 +1,37 @@
+14:03:24 **** Incremental Build of configuration Debug for project mem_testing ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:121:3: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
+   gettimeofday(&tv, &tz);
+   ^
+../main.c:92:6: warning: variable 'rdarray' set but not used [-Wunused-but-set-variable]
+  int rdarray[0x10000];
+      ^
+../main.c:91:6: warning: variable 'wrarray' set but not used [-Wunused-but-set-variable]
+  int wrarray[0x10000];
+      ^
+../main.c:89:7: warning: unused variable 'theTime' [-Wunused-variable]
+  char theTime[255];
+       ^
+../main.c:80:8: warning: unused variable 'timeuse' [-Wunused-variable]
+  float timeuse;
+        ^
+../main.c:79:25: warning: unused variable 'tpend' [-Wunused-variable]
+  struct timeval tpstart,tpend;
+                         ^
+../main.c:79:17: warning: unused variable 'tpstart' [-Wunused-variable]
+  struct timeval tpstart,tpend;
+                 ^
+'Finished building: ../main.c'
+' '
+'Building target: mem_testing'
+'Invoking: GCC C Linker'
+arm-linux-gnueabihf-gcc  -o "mem_testing"  ./main.o   
+'Finished building target: mem_testing'
+' '
+
+14:03:25 Build Finished (took 312ms)
+

@@ -1,0 +1,11 @@
+20:04:40 **** Incremental Build of configuration Debug for project test ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler'
+arm-none-eabi-gcc -I"C:\cygwin64\usr\include" -O0 -g -Wall -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+'arm-none-eabi-gcc' is not recognized as an internal or external command,
+operable program or batch file.
+make: *** [main.o] Error 1
+
+20:04:41 Build Finished (took 113ms)
+
