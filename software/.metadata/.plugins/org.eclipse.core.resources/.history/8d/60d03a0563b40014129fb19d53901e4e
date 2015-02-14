@@ -155,6 +155,7 @@ int main()
 		for( rdidx = 0 ; rdidx <= 0x00010000; rdidx++) {
 
 			/*access address will range from 0x40000 to 0x80000*/
+			//void* access_addr;
 			access_addr = (virt_addr + (ALT_LWFPGA_MEM_OFFSET + (rdidx * 4)));
 			rdarray[rdidx] = *((unsigned long*) (access_addr));
 
