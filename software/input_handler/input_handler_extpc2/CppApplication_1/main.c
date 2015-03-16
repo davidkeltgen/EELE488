@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
     }
     
 
-    /* Send means, standard deviation and coefficient matrices over the bridge */
+    /* Send means, standard deviation and coefficient matrices over the fullweight bridge */
     
     for(i = 0; i < means_size;i++)
     {
@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
         }
     }
     
-    // send datacube values
+    // send datacube values using the SGDMA module
     
 
 
