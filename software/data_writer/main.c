@@ -14,8 +14,8 @@
  *  and will be written as CSVs. 
  */
 int main(int argc, char** argv) {
-    char * MEANS_FILEPATH = "/resonon/input/means/mean.csv";
-    char * STANDARDS_FILEPATH = "/resonon/input/standards/standard.csv";
+    char * MEANS_FILEPATH = "/resonon/input/means/means.csv";
+    char * STANDARDS_FILEPATH = "/resonon/input/standards/standards.csv";
     char * CLASS_FILEPATH = "/resonon/input/class/class.csv";
     FILE *outfile; // for writing
     int means_size = 1088;
@@ -23,8 +23,9 @@ int main(int argc, char** argv) {
     int num_classes = 50;
     int class_size = 1089;
     int var = 0;
-    int i,j;
+    int i,j,temp_counter;
     
+    /* Write to class.csv*/
     int ** class_matrix;
     class_matrix = (int **) malloc(num_classes * class_size * sizeof (int));
     for( i=0; i < class_size; i++)
@@ -32,6 +33,9 @@ int main(int argc, char** argv) {
         class_matrix[i] = (int *) malloc(num_classes * sizeof(int));
     }
     int counter = 0;
+    
+    
+    
     for(i = 0; i < class_size; i++)
     {
         for( j = 0; j < num_classes; j++)
@@ -43,7 +47,7 @@ int main(int argc, char** argv) {
     
     int means[means_size];
     int standards[standards_size];
-    printf("size of an int %d\n", sizeof(var));
+    printf("size of an int blahblabhlabh %d\n", sizeof(var));
     
     for(i=0; i < means_size; i++)
     {
@@ -54,86 +58,68 @@ int main(int argc, char** argv) {
     {
         standards[i] = i;
     }
-    
-    /* Write the Means to a text file, should be ~4.3KB*/
-    outfile = fopen(MEANS_FILEPATH, "a"); // write to this file
+    printf("flag1\n");
+    temp_counter = 0;
+    /* Write the Means to a text file*/
+    outfile = fopen(MEANS_FILEPATH, "a+"); // write to this file
     for(i = 0; i < means_size; i++)
     {
-        char msg[100];
-        strstr(msg,"hello");
-        if(i == standards_size -1)
+        if(i == means_size -1)
         {
-            sprintf(msg, "%d", means[i]);
-            //fwrite(&standards[i], sizeof(int), 1, outfile);
+            fprintf(outfile, "%d", means[i]);
             
         }
         else
         {
-            sprintf(msg, "%d,",means[i]);
+            fprintf(outfile, "%d,",means[i]);
         }
-        printf("flag1\n");
-        printf(msg);
-        fwrite(msg, 1, strlen(msg), outfile);
+        temp_counter++;
     }
     fclose(outfile);
-    printf("flag2\n");
+    printf("Means temp_counter is %d\n", temp_counter);
     
+    
+    temp_counter = 0;
     /* Write the Standard Deviations to a text file, should be ~4.3KB*/
-    outfile = fopen(STANDARDS_FILEPATH, "a"); // write to this file
+    outfile = fopen(STANDARDS_FILEPATH, "a+"); // write to this file
     for(i = 0; i < standards_size; i++)
     {
         char msg[100];
         if(i == standards_size -1)
         {
-            sprintf(msg, "%d", standards[i]);
-            //fwrite(&standards[i], sizeof(int), 1, outfile);
-            
+            fprintf(outfile, "%d", standards[i]);
         }
         else
         {
-            sprintf(msg, "%d,",standards[i]);
+            fprintf(outfile, "%d,",standards[i]);
         }
-        fwrite(msg, sizeof (msg[0]), strlen(msg), outfile);
-        
+        temp_counter++;
     }
     fclose(outfile);
+    printf("Standards temp_counter is %d\n", temp_counter);
     
-    /* Write the Classification Coefficients to a text file, should be ~217KB*/
-    //int counter = 0;
-    int temp_counter;
-    printf("flag1\n");
-    outfile = fopen(CLASS_FILEPATH, "a"); // write to this file
+    temp_counter = 0;
+    /* Write the Classification Coefficients to a csv file*/
+
+    outfile = fopen(CLASS_FILEPATH, "a+"); // write to this file
     for(i = 0; i < class_size; i++) //class size is the number of columns
     {
         for(j = 0; j < num_classes; j++)
         {
-            
-                    char msg[100];
-        if(i == (class_size* num_classes) -1)
-        {
-            sprintf(msg, "%d", class_matrix[i][j]);
-            
-        }
-        else
-        {
-            sprintf(msg, "%d,",class_matrix[i][j]);
-        }
-                    
-                    
-        fwrite(msg,1,strlen(msg), outfile);
-        printf(msg);    
-            
-            
-            
-            //temp_counter = counter;
-            //temp_counter = temp_counter >> 3;
-            //printf("%4x", temp_counter);
-            //fwrite(&temp_counter, sizeof(int), 1, outfile);
-            //counter++;
+            char msg[100];
+            if(i == (class_size* num_classes) -1)
+            {
+                fprintf(outfile, "%d", class_matrix[i][j]); 
+            }
+            else
+            {
+                fprintf(outfile, "%d,",class_matrix[i][j]);
+            }
+            temp_counter++;
         }
     }
     fclose(outfile);
-    printf("flag2\n");
+    printf("Classification temp_counter is %d\n", temp_counter);
     
     
     
