@@ -3,12 +3,9 @@
  * Company: Montana State University                                        *
  * File Name: system.h                                                      *
  * Date:  March 17 2015                                                     *
- * Description:   *
- * 				                                          *
- *				*
- *				*
- *				*
- *				*
+ * Description: Lists all of the required C library includes. These are     * 
+ *				placed in one header file so that the other header files    *
+ *				only have to include system.h                               *
  ****************************************************************************/
 
 #ifndef SYSTEM_H

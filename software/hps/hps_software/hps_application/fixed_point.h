@@ -2,7 +2,7 @@
  * Author: David Keltgen                                                    *
  * Company: Montana State University                                        *
  * File Name: fixed_point.h                                                 *
- * Date:  January 3 2015                                                    *
+ * Date:  March 17 2015                                                     *
  * Description: *  
  *				*
  *				*
