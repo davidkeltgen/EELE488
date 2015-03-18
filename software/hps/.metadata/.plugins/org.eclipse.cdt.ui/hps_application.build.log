@@ -1,0 +1,32 @@
+19:36:40 **** Incremental Build of configuration Debug for project hps_application ****
+make all 
+'Building file: ../classification.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"classification.d" -MT"classification.d" -o "classification.o" "../classification.c"
+../classification.c: In function 'parseClassParams':
+../classification.c:19:18: error: array type has incomplete element type
+     struct fixed class_fixed[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
+                  ^
+../classification.c:24:5: error: 'var' undeclared (first use in this function)
+     var = 0;
+     ^
+../classification.c:24:5: note: each undeclared identifier is reported only once for each function it appears in
+../classification.c:42:5: warning: passing argument 1 of 'close' makes integer from pointer without a cast [enabled by default]
+     close(file);
+     ^
+In file included from ../system.h:23:0,
+                 from ../classification.h:21,
+                 from ../classification.c:9:
+d:\altera\14.0\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\unistd.h:353:12: note: expected 'int' but argument is of type 'struct FILE *'
+ extern int close (int __fd);
+            ^
+../classification.c:44:5: warning: implicit declaration of function 'float2fixed' [-Wimplicit-function-declaration]
+     float2fixed(class_matrix[0][0], class_fixed[0][0]);
+     ^
+../classification.c:19:18: warning: unused variable 'class_fixed' [-Wunused-variable]
+     struct fixed class_fixed[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
+                  ^
+make: *** [classification.o] Error 1
+
+19:36:40 Build Finished (took 203ms)
+

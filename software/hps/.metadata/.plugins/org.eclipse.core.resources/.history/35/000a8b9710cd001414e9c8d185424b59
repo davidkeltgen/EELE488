@@ -1,0 +1,64 @@
+/****************************************************************************
+ * Author: David Keltgen                                                    *
+ * Company: Montana State University                                        *
+ * File Name: classification.c                                              *
+ * Date:  November 9 2014                                                   *
+ * Description:        *
+ ****************************************************************************/
+
+#include "classification.h"
+
+int parseClassParams() {
+    
+    record("CLASSIFICATION: inside parseClassParams\n");
+    
+    FILE* file;
+    int i, j;
+     
+    
+    struct fixed class_fixed[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
+    
+    /* Read in Values from CSV */
+    file = fopen(CLASSIFICATION_PATH, "r");
+    
+    var = 0;
+    for(i = 0; i < CLASSIFICATION_MATRIX_SIZE; i++)
+    {
+        for(j = 0; j < NUM_CLASSES; j++)
+        {
+            if(i * j < (CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES - 1))
+            {
+                
+            }
+            else
+            {
+                fscanf(file, "%lf,", &var);
+                class_matrix[i][j] = var;
+                class_fixed[i][j].type = classes;
+            }
+        }
+    }
+    
+    close(file);
+    
+    float2fixed(class_matrix[0][0], class_fixed[0][0]);
+    
+        /*Convert the value to fixed*/
+    for(i = 0; i < class_size; i++)
+    {
+        for(j = 0; j < num_classes; j++)
+        {
+            //float2fixed(class_matrix[i][j], class_fixed[i][j]);
+        }
+    }
+    
+    //free the raw value matrix
+        for(i = 0; i < class_size; i++)
+    {
+        class_matrix[i] = (double *) malloc(num_classes * sizeof(double));
+    }
+    return 0;
+
+    
+
+}
