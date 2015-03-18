@@ -108,9 +108,9 @@ int parseBin(int cube_type) {
     datacube * temp_cube = malloc(sizeof (datacube));
     FILE* file;
     char c1, c2;
-    int i, j, k;
     char filepath[100];
     char msg[256];
+    int i, j, k;
     int counter = 0;
     int num_values = 0;
     uint16_t var;
@@ -166,7 +166,7 @@ int parseBin(int cube_type) {
                     var = var << 8;                         /* Shift var over 8 */                    
                     var = var + c2;                         /* Add second character to var (LS 8 bits)*/
                     temp_matrix[i][j][k] = var;             /* Store it to matrix */
-                    //printf("datacube: %d\n", var);
+                    sprintf(msg, "datacube: %d\n", var); record(msg);
 
                 }
             }

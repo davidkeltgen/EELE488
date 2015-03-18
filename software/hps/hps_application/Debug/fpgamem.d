@@ -1,0 +1,1 @@
+fpgamem.d: ../fpgamem.c

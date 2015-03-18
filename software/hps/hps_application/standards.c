@@ -9,6 +9,7 @@
  ****************************************************************************/
 
 #include "standards.h"
+#include "fixed_point.h"
 
 int parseStandards() {
 
@@ -18,7 +19,7 @@ int parseStandards() {
     int i;
     char msg[256];
     
-    struct fixed standards_fixed[STANDARDS_MATRIX_SIZE];
+    fixed standards_fixed[STANDARDS_MATRIX_SIZE];
     
     /* Read in Values from CSV */
     file = fopen(STANDARDS_PATH, "r");

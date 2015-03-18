@@ -10,9 +10,11 @@
  ****************************************************************************/
  
 #include "system.h"
+#include "fixed_point.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 
 #define SHIFT_AMOUNT_MEANS 8 // 2^16 = 65536
 
@@ -22,7 +24,7 @@
  */
 
 
-int float2fixed( struct fixed in_value) {
+int float2fixed(fixed in_value) {
 
 	char msg[256];
 	record("FIXEDPOINT: start float2fixed\n");
@@ -73,7 +75,7 @@ int float2fixed( struct fixed in_value) {
     in_value.final_value = in_value.final_value + frac; // this is the value that will be written to the register
     sprintf(msg, "FIXEDPOINT: Number to be written to register 0x%8X, %d", in_value.final_value, in_value.final_value); // should be 0x0066E000
     record(msg);
-     /*Since pointer to the fixed number struct was passed in, that is what will be updated
+     /*Since pointer to the fixed number struct was passed in, that is what will be updated */
      
      return (EXIT_SUCCESS);
 }

@@ -9,28 +9,15 @@
  *				*
  ****************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-#include <signal.h>
-#include <fcntl.h>
-#include <ctype.h>
-#include <termios.h>
-#include <sys/types.h>
-#include <sys/mman.h>
-#include <time.h>
+#include "system.h"
+#include "fpgamem.h"
 
-#define FATAL do { fprintf(stderr, "Error at line %d, file %s (%d) [%s]\n", \
-  __LINE__, __FILE__, errno, strerror(errno)); exit(1); } while(0)
+
 
 
 /* 2^16 = 65536 memory addresses = 0x10000*/
 /* since each address is 4 bytes, 0x40000 */
-#define MAP_SIZE 0x800000
-#define MAP_MASK (MAP_SIZE - 1)
+
 
 void delay()
 {
@@ -39,7 +26,10 @@ void delay()
         usleep(55688);
 }
 
-int fpgamem()
+
+/* Need to write to unsigned memory
+
+int fpga_mem_write(void)
 {
 	char msg[256];
 	int i = 0;

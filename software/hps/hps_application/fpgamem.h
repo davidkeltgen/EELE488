@@ -7,13 +7,32 @@
  *              *  
  ****************************************************************************/
 
-#ifndef LOGGER_H
-#define	LOGGER_H
+#ifndef FPGAMEM_H
+#define	FPGAMEM_H
+
+/*
+*********************************************************************************************************
+*                                                 INCLUDE FILES
+*********************************************************************************************************
+*/
 
 #include "system.h"
 
-#define  FILEPATH   "hps_log.txt"
+/*
+*********************************************************************************************************
+*                                                 DEFINES
+*********************************************************************************************************
+*/
+#define MAP_SIZE 0x800000
+#define MAP_MASK (MAP_SIZE - 1)
 
+#define FATAL do { fprintf(stderr, "Error at line %d, file %s (%d) [%s]\n", \
+  __LINE__, __FILE__, errno, strerror(errno)); exit(1); } while(0)
+
+/*global vars*/
+
+
+/* Prototypes */
 void record(const char* message);
 
 #endif	/* LOGGER_H */
