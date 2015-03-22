@@ -6,14 +6,12 @@
  */
 
  #include "main.h"
- 
-#include <stdio.h>
-#include <stdlib.h>
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+    printf("program started\n");
     record("MAIN: Program started.\n");
     
     int var, i, j;
@@ -31,7 +29,7 @@ int main(int argc, char** argv) {
     } else {
         record("MAIN: Dark datacube header did not parse correctly!\n");
     }
-
+    record("MAIN: Dark datacube parsed\n");
     /* Parse the header file for response. */
     var = parseHdr(response); 
 

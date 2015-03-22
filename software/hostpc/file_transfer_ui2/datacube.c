@@ -4,7 +4,7 @@
  * File Name: datacube.c                                                    *
  * Date:  November 4 2014                                                   *
  * Description: Responsible for parsing the data cube files saved onto the  *
- * 				SD Card into RAM                                            *
+ * 				SD Card into RAM                            *
  *				*
  *				*
  *				*
@@ -119,59 +119,69 @@ int parseBin(int cube_type) {
 
     /*Allocate memory for matrices */
     if (cube_type == dark) {
-        strcpy(filepath, RESPONSE_BINARY_PATH);
+        strcpy(filepath, DARK_BINARY_PATH);
         temp_cube = dark_cube;
         
         num_values = dark_cube->lines * dark_cube->bands * dark_cube->samples;
-        dark_matrix = (uint32_t ***) malloc(num_values * sizeof (uint16_t));
+        dark_matrix = (uint32_t ***) malloc(num_values * sizeof (uint32_t));
         for (i = 0; i < dark_cube->lines; i++) {
-            dark_matrix[i] = (uint32_t **) malloc(dark_cube->bands * sizeof (uint16_t *));
+            dark_matrix[i] = (uint32_t **) malloc(dark_cube->bands * sizeof (uint32_t *));
             for (j = 0; j < temp_cube->bands; j++) {
-                dark_matrix[i][j] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint16_t));
+                dark_matrix[i][j] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint32_t));
             }
         }
     } else if (cube_type == response) {
-        strcpy(filepath, DARK_BINARY_PATH);
+        strcpy(filepath, RESPONSE_BINARY_PATH);
         temp_cube = response_cube;
         
-        response_matrix = (uint16_t ***) malloc(num_values * sizeof (uint16_t));
+        response_matrix = (uint32_t ***) malloc(num_values * sizeof (uint32_t));
         for (i = 0; i < temp_cube->lines; i++) {
-            temp_matrix[i] = (uint16_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
+            temp_matrix[i] = (uint32_t **) malloc(temp_cube->bands * sizeof (uint32_t *));
             for (j = 0; j < temp_cube->bands; j++) {
-                temp_matrix[i][j] = (uint16_t *) malloc(temp_cube->samples * sizeof (uint16_t));
+                temp_matrix[i][j] = (uint32_t *) malloc(temp_cube->samples * sizeof (uint32_t));
             }
     }
     }
 
     num_values = temp_cube->lines * temp_cube->bands * temp_cube->samples;
 
-    temp_matrix = (uint32_t ***) malloc(num_values * sizeof (uint16_t));
+    temp_matrix = (uint32_t ***) malloc(num_values * sizeof (uint32_t));
     for (i = 0; i < temp_cube->lines; i++) {
-        temp_matrix[i] = (uint32_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
+        temp_matrix[i] = (uint32_t **) malloc(temp_cube->bands * sizeof (uint32_t *));
         for (j = 0; j < temp_cube->bands; j++) {
-            temp_matrix[i][j] = (uint32_t *) malloc(temp_cube->samples * sizeof (uint16_t));
+            temp_matrix[i][j] = (uint32_t *) malloc(temp_cube->samples * sizeof (uint32_t));
         }
     }
 
     file = fopen(filepath, "r");
+    sprintf(msg,"%s\n", filepath);
+    record(msg);
 
     if (strstr(BIL, temp_cube->interleave)) {
         record("DATACUBE: inside bil\n");
+        sprintf(msg,"%d  %d  %d\n", temp_cube->lines, temp_cube->bands, temp_cube->samples);
+        record(msg);
+        sprintf(msg,"%d\n", num_values);
+        record(msg);
         for (i = 0; i < temp_cube->lines; i++) {
             for (j = 0; j < temp_cube->bands; j++) {
                 for (k = 0; k < temp_cube->samples; k++) {
-                    
+                   
                     fscanf(file, "%c%c", &c1, &c2);         /* Scan in two characters */
                     var = c1;                               /* Set to first character */ 
                     var = var << 8;                         /* Shift var over 8 */                    
                     var = var + c2;                         /* Add second character to var (LS 8 bits)*/
                     temp_matrix[i][j][k] = var;             /* Store it to matrix */
-                    sprintf(msg, "datacube: %d\n", var); record(msg);
+                    //sprintf(msg, "datacube: %d\n", var); record(msg);
+                    counter++;
+                    //sprintf(msg,"%d\n", counter);
+                    //record(msg);
 
                 }
             }
         }
     }
+    
     sprintf(msg, "DATACUBE: Counter is: %d, Num_values: %d\n", counter, num_values);
     record(msg);
 
@@ -214,10 +224,10 @@ void printHdr(int cube_type) {
     sprintf(msg, "DATACUBE: samples = %d\n", temp_cube->samples); record(msg);
     sprintf(msg, "DATACUBE: data type = %d\n", temp_cube->data_type); record(msg);
     sprintf(msg, "DATACUBE: byte order = %d\n", temp_cube->byte_order); record(msg);
-    record("DATACUBE: wavelength= {");
+    record("DATACUBE: wavelength= {\n");
     for (i = 0; i < temp_cube->bands; i++) {
-    	sprintf(msg, "%f, ", temp_cube->wavelength[i]); record(msg);
+    	sprintf(msg, "%f \n ", temp_cube->wavelength[i]); record(msg);
     }
-    record("}\n");
+    record("\n}\n");
     sprintf(msg, "DATACUBE: bit depth = %d\n", temp_cube->bit_depth);
 }

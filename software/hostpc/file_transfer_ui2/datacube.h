@@ -25,10 +25,10 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  DARK_BINARY_PATH         "resonon/input/dark/darkCube.bil"
-#define  DARK_HEADER_PATH         "resonon/input/dark/darkCube.bil.hdr"
-#define  RESPONSE_BINARY_PATH     "resonon/input/response/responseCube.bil"
-#define  RESPONSE_HEADER_PATH     "resonon/input/response/responseCube.bil.hdr"
+#define  DARK_BINARY_PATH         "/resonon/input/dark/darkCube.bil"
+#define  DARK_HEADER_PATH         "/resonon/input/dark/darkCube.bil.hdr"
+#define  RESPONSE_BINARY_PATH     "/resonon/input/response/responseCube.bil"
+#define  RESPONSE_HEADER_PATH     "/resonon/input/response/responseCube.bil.hdr"
 
 #define  BIP                      "bip"
 #define  BIL                      "bil"

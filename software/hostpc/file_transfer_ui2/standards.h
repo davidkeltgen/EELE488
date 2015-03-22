@@ -25,7 +25,7 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  STANDARDS_PATH        	 "/resonon/input/standards/standard.csv"
+#define  STANDARDS_PATH        	 "/resonon/input/standards/standards.csv"
 #define  STANDARDS_BASE_ADDRESS
 #define  STANDARDS_MATRIX_SIZE	 1088   /*Could be read in from header file */
 

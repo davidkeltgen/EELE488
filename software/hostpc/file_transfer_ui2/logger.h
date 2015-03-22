@@ -24,7 +24,7 @@
 *********************************************************************************************************
 */ 
 
-#define  FILEPATH   "C:/log/hps_log.log"
+#define  FILEPATH   "/log/hostpc_log.log"
 
 /* global vars */
 

@@ -28,7 +28,7 @@ int float2fixed(fixed in_value) {
 
 	char msg[256];
 	record("FIXEDPOINT: start float2fixed\n");
-	sprintf(msg, "double that will be converted: %lf\n", in_value.input); record(msg);
+	sprintf(msg, "FIXEDPOINT: Double that will be converted: %lf\n", in_value.input); record(msg);
 
     int shift_num;
 
@@ -73,7 +73,7 @@ int float2fixed(fixed in_value) {
      
     int frac = max_frac_val * in_value.fraction;
     in_value.final_value = in_value.final_value + frac; // this is the value that will be written to the register
-    sprintf(msg, "FIXEDPOINT: Number to be written to register 0x%8X, %d", in_value.final_value, in_value.final_value); // should be 0x0066E000
+    sprintf(msg, "FIXEDPOINT: Number to be written to register 0x%8X, %d\n", in_value.final_value, in_value.final_value); // should be 0x0066E000
     record(msg);
      /*Since pointer to the fixed number struct was passed in, that is what will be updated */
      
