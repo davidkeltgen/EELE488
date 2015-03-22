@@ -7,3 +7,6 @@ In file included from ..\main.h:22:0,
  #include <sys/mman.h>
                       ^
 compilation terminated.
+
+13:48:43 Build Finished (took 3s.36ms)
+

@@ -1,0 +1,27 @@
+#
+#Sun Mar 22 13:48:43 MDT 2015
+means.h=1
+logger.c=1
+fixed_point.h=1
+system.h=1
+Debug/server.o=1
+means.c=1
+fixed_point.c=1
+Debug/means.o=1
+main.c=1
+Debug/fixed_point.o=1
+classification.h=1
+Debug/logger.o=1
+server.c=1
+classification.c=1
+datacube.h=1
+Debug/file_transfer_ui.exe=1
+Debug/datacube.o=1
+datacube.c=1
+Debug/standards.o=1
+Debug/main.o=1
+Debug/classification.o=1
+standards.h=1
+defs.h=1
+standards.c=1
+logger.h=1
