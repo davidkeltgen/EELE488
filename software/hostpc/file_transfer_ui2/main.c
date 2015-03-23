@@ -5,7 +5,8 @@
  * Created on January 24, 2015, 12:48 PM
  */
 
- #include "main.h"
+#include "main.h"
+#include "fixed_point.h"
 
 /*
  * 
@@ -49,15 +50,18 @@ int main(int argc, char** argv) {
     
     parseClassParams();
     
-    printf("MAIN: Printing off parsed values\n");
+   // printf("MAIN: Printing off parsed values\n");
     
-    printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
+  //  printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
     for (i = 0; i < 50; i++)
     {
-        printf("%lf %lf %lf\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
+        printf("%f\n", means_fixed[i].input);
+        printf("%f\n", standards_fixed[i].input);
+        printf("%f\n", class_fixed[0][i].input);
     }
     
     /* Send the files over the network */
+    
     
 
     return (EXIT_SUCCESS);

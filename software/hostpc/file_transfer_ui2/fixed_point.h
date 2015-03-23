@@ -30,7 +30,7 @@
 /* global vars */
 
  typedef struct{
-	float input;
+    float input;
     int integer;
     float fraction;
     uint32_t final_value;
@@ -38,6 +38,6 @@
 }fixed;
 
 /* prototypes */
-int float2fixed(fixed in_value);
+int float2fixed(fixed * in_value);
 
 #endif	/* FIXED_POINT_H */

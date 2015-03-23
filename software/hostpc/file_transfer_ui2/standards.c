@@ -19,7 +19,7 @@ int parseStandards() {
     int i;
     char msg[256];
     
-    fixed standards_fixed[STANDARDS_MATRIX_SIZE];
+    
     
     /* Read in Values from CSV */
     file = fopen(STANDARDS_PATH, "r");
@@ -43,7 +43,7 @@ int parseStandards() {
     	standards_fixed[i].type = standards;
 
     	/*Convert the value to fixed*/
-    	float2fixed(standards_fixed[i]);
+    	float2fixed(&standards_fixed[i]);
 
     }
 

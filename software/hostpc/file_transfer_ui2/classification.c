@@ -7,7 +7,6 @@
  ****************************************************************************/
 
 #include "classification.h"
-#include "fixed_point.h"
 
 int parseClassParams() {
     
@@ -15,8 +14,9 @@ int parseClassParams() {
     
     FILE* file;
     int i, j;
+    char msg[256];
      
-    fixed **class_fixed;
+    
 
     class_fixed = (fixed **)malloc(sizeof(fixed*) * CLASSIFICATION_MATRIX_SIZE);
     for(i = 0; i < CLASSIFICATION_MATRIX_SIZE; i++)
@@ -25,33 +25,52 @@ int parseClassParams() {
     }
     
     //struct fixed class_fixed[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
-    
+    float var;
     /* Read in Values from CSV */
-    file = fopen(CLASSIFICATION_PATH, "r");
     
+    file = fopen(CLASSIFICATION_PATH, "r");
+    //fscanf(file, "%d,", &var);
+    //printf("var: %d\n", var);
+    //fscanf(file, "%d,", &var);
+    //printf("var: %d\n", var);
+    //fscanf(file, "%d,", &var);
+    //printf("var: %d\n", var);
+    
+   
+    
+    int counter = 0;
     for(i = 0; i < CLASSIFICATION_MATRIX_SIZE; i++)
     {
+        
         for(j = 0; j < NUM_CLASSES; j++)
         {
-            if(i * j < (CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES - 1))
+            
+             //sprintf(msg, "%s  %d\n", CLASSIFICATION_PATH, (int)file); record(msg);
+            //printf("inside for\n");
+            if((i * j) == (CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES - 1))
             {
+                //printf("inside if\n");
             	fscanf(file, "%f", &class_fixed[i][j].input);
+                
             }
             else
             {
+                //sprintf(msg,"File info: %s  %d\n", CLASSIFICATION_PATH, (int)file);
                 fscanf(file, "%f,", &class_fixed[i][j].input);
+               // sprintf(msg,"inside else %d %d %d %d \n", i,j,var, (int)file); record(msg);
+                //sprintf(msg,"var :%f\n", class_fixed[i][j].input); record(msg);
 
             }
-            class_fixed[i][j].type = classes;
-
+            //class_fixed[i][j].type = classes;
+            //printf("%d\n", counter++);
             /*Convert the value to fixed*/
-            float2fixed(class_fixed[i][j]);
+            float2fixed(&class_fixed[i][j]);
         }
     }
     
     close(file);
     
-    /* standards_fixed now has the final values to be written to fpga memory */
+    /* class_fixed now has the final values to be written to fpga memory */
     return 0;
 
     

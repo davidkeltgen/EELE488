@@ -19,6 +19,7 @@
 */ 
 
 #include "system.h"
+#include "fixed_point.h"
 
 /*
 *********************************************************************************************************
@@ -26,13 +27,14 @@
 *********************************************************************************************************
 */ 
 #define  CLASSIFICATION_PATH         	"/resonon/input/class/class.csv"
-#define  CLASSIFICATION_MATRIX_SIZE		1088   /*Could be read in from header file */
-#define  NUM_CLASSES					50
+#define  CLASSIFICATION_MATRIX_SIZE     1088   /*Could be read in from header file */
+#define  NUM_CLASSES			50
 
 /* global vars */
 
 /* 2D classification matrix*/
 double ** class_matrix;
+fixed **class_fixed;
 
 int class_size;   /*Could be read in from header file */
 int num_classes;   /*Could be read in from header file */

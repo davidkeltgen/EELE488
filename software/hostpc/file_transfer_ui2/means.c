@@ -20,7 +20,7 @@ int parseMeans() {
     int i;
     float var;
 
-    fixed means_fixed[MEANS_MATRIX_SIZE];
+    
 	/* Read in Values from CSV */
     file = fopen(MEANS_PATH, "r");
     sprintf(msg,"File info: %s  %d\n", MEANS_PATH, (int)file);
@@ -46,7 +46,7 @@ int parseMeans() {
     	means_fixed[i].type = means;
 
     	/*Convert the value to fixed*/
-    	float2fixed(means_fixed[i]);
+    	float2fixed(&means_fixed[i]);
         
     }
     close(file);

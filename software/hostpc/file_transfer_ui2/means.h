@@ -19,6 +19,7 @@
 */ 
 
 #include "system.h"
+#include "fixed_point.h"
 
 /*
 *********************************************************************************************************
@@ -33,7 +34,7 @@
 
 /* 2D classification matrix*/
 double * means_matrix;
-
+fixed means_fixed[MEANS_MATRIX_SIZE];
 
 /* prototypes */
 int parseMeans(void);

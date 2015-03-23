@@ -19,6 +19,7 @@
 */ 
 
 #include "system.h"
+#include "fixed_point.h"
 
 /*
 *********************************************************************************************************
@@ -33,6 +34,7 @@
 
 /* 2D classification matrix*/
 double * standards_matrix;
+fixed standards_fixed[STANDARDS_MATRIX_SIZE];
 
 /* prototypes */
 int parseStandards(void);
