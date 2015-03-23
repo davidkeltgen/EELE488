@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="hps_software_nb"
+                     displayName="hps_software_nb"
+                     projectFiles="true">
+        <logicalFolder name="dist" displayName="dist" projectFiles="true">
+          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
+            <logicalFolder name="GNU-Linux-x86"
+                           displayName="GNU-Linux-x86"
+                           projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="logs" displayName="logs" projectFiles="true">
+          <itemPath>logs/hps_log.txt</itemPath>
+        </logicalFolder>
+        <logicalFolder name="resonon" displayName="resonon" projectFiles="true">
+          <logicalFolder name="input" displayName="input" projectFiles="true">
+            <logicalFolder name="class" displayName="class" projectFiles="true">
+              <itemPath>resonon/input/class/class.csv</itemPath>
+            </logicalFolder>
+            <logicalFolder name="dark" displayName="dark" projectFiles="true">
+              <itemPath>resonon/input/dark/darkCube.bil</itemPath>
+              <itemPath>resonon/input/dark/darkCube.bil.hdr</itemPath>
+            </logicalFolder>
+            <logicalFolder name="means" displayName="means" projectFiles="true">
+              <itemPath>resonon/input/means/means.csv</itemPath>
+            </logicalFolder>
+            <logicalFolder name="response" displayName="response" projectFiles="true">
+              <itemPath>resonon/input/response/responseCube.bil</itemPath>
+              <itemPath>resonon/input/response/responseCube.bil.bak</itemPath>
+              <itemPath>resonon/input/response/responseCube.bil.hdr</itemPath>
+            </logicalFolder>
+            <logicalFolder name="standards" displayName="standards" projectFiles="true">
+              <itemPath>resonon/input/standards/standards.csv</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="resonon_old" displayName="resonon_old" projectFiles="true">
+          <logicalFolder name="input" displayName="input" projectFiles="true">
+            <logicalFolder name="class" displayName="class" projectFiles="true">
+              <itemPath>resonon_old/input/class/class.txt</itemPath>
+            </logicalFolder>
+            <logicalFolder name="dark" displayName="dark" projectFiles="true">
+              <itemPath>resonon_old/input/dark/darkCube.bil</itemPath>
+              <itemPath>resonon_old/input/dark/darkCube.bil.aux.xml</itemPath>
+              <itemPath>resonon_old/input/dark/darkCube.bil.hdr</itemPath>
+            </logicalFolder>
+            <logicalFolder name="means" displayName="means" projectFiles="true">
+              <itemPath>resonon_old/input/means/mean.csv</itemPath>
+            </logicalFolder>
+            <logicalFolder name="response" displayName="response" projectFiles="true">
+              <itemPath>resonon_old/input/response/responseCube.bil</itemPath>
+              <itemPath>resonon_old/input/response/responseCube.bil.aux.xml</itemPath>
+              <itemPath>resonon_old/input/response/responseCube.bil.bak</itemPath>
+              <itemPath>resonon_old/input/response/responseCube.bil.hdr</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>Makefile</itemPath>
+        <itemPath>classification.c</itemPath>
+        <itemPath>classification.h</itemPath>
+        <itemPath>datacube.c</itemPath>
+        <itemPath>datacube.h</itemPath>
+        <itemPath>defs.h</itemPath>
+        <itemPath>fixed_point.c</itemPath>
+        <itemPath>fixed_point.h</itemPath>
+        <itemPath>fpgamem.c</itemPath>
+        <itemPath>fpgamem.h</itemPath>
+        <itemPath>handler_funcs.c</itemPath>
+        <itemPath>logger.c</itemPath>
+        <itemPath>logger.h</itemPath>
+        <itemPath>main.h</itemPath>
+        <itemPath>means.c</itemPath>
+        <itemPath>means.h</itemPath>
+        <itemPath>server.c</itemPath>
+        <itemPath>server.h</itemPath>
+        <itemPath>standards.c</itemPath>
+        <itemPath>standards.h</itemPath>
+        <itemPath>system.h</itemPath>
+      </logicalFolder>
+      <itemPath>main.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classification.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="classification.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="datacube.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="datacube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fixed_point.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fixed_point.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fpgamem.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fpgamem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="handler_funcs.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="logger.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="logger.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="logs/hps_log.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="means.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="means.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/class/class.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/dark/darkCube.bil" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/dark/darkCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/means/means.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil.bak"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/standards/standards.csv"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/class/class.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil.aux.xml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/means/mean.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.aux.xml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.bak"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="server.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="server.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="standards.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="standards.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="system.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classification.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="classification.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="datacube.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="datacube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="defs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fixed_point.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fixed_point.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fpgamem.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fpgamem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="handler_funcs.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="logger.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="logger.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="logs/hps_log.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="means.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="means.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/class/class.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/dark/darkCube.bil" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/dark/darkCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/means/means.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil.bak"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/response/responseCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon/input/standards/standards.csv"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/class/class.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil.aux.xml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/dark/darkCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/means/mean.csv" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.aux.xml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.bak"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resonon_old/input/response/responseCube.bil.hdr"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="server.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="server.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="standards.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="standards.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="system.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
