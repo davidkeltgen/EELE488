@@ -28,6 +28,9 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include <time.h>
+#include <arpa/inet.h>
+
+#include "means.h"
 
 #define PORT "3490"  // the port users will be connecting to
 
@@ -46,6 +49,26 @@ void *get_in_addr(struct sockaddr *sa)
     }
 
     return &(((struct sockaddr_in6*)sa)->sin6_addr);
+}
+
+int sendall(int s, char *buf, int *len)
+{
+    printf("in sendall\n");
+    int total = 0;        // how many bytes we've sent
+    int bytesleft = *len; // how many we have left to send
+    int n;
+
+    while(total < *len) {
+        n = send(s, buf+total, bytesleft, 0);
+        printf("number of bytes sent: %d\n", n);
+        if (n == -1) { break; }
+        total += n;
+        bytesleft -= n;
+    }
+
+    *len = total; // return number actually sent here
+
+    return n==-1?-1:0; // return -1 on failure, 0 on success
 }
 
 int server(void)
@@ -114,7 +137,26 @@ int server(void)
         exit(1);
     }
 
-    printf("server: waiting for connections...\n");
+    
+    //   char array[10000];
+    //    strcpy(array, "");
+    //   char temp[10];
+    //   int i;
+    //   for(i = 0; i < 125; i++)
+    //   {
+    //       sprintf(temp, "%d", i);
+    //       printf("%s\n", temp);
+    //       strcat(array, temp);
+    //       //array[10 * i] = temp;
+    //   }
+    //   printf("%s\n", array);
+    //   for(i = 0; i < 4096; i++)
+    //   {
+           //printf("%c", array[i]);
+    //   }
+    //   printf("\n");
+    
+    //printf("server: waiting for connections...\n");
 
     while(1) {  // main accept() loop
         sin_size = sizeof their_addr;
@@ -135,26 +177,49 @@ int server(void)
        struct timeval tv;
        struct timezone *tz;
        struct tm *tm;
+       
+
 
         if (!fork()) { // this is the child process
             close(sockfd); // child doesn't need the listener
             
-            while(count <60)
+            while(count <1)
             {
             gettimeofday(&tv, &tz);
             tm = localtime(&tv.tv_sec);
             sprintf(msg, "%02d:%02d:%02d:%03d %d\0", tm->tm_hour, tm->tm_min, tm->tm_sec, (int)(tv.tv_usec / 1000), count);
-            printf("%s\n", msg);
-            if (send(new_fd, msg, 255, 0) == -1)
-                perror("send");
+            //sprintf(msg, "%X", )
+           // printf("%s\n", msg);
+            //if (send(new_fd, msg, 255, 0) == -1)
+            //{
+            //   perror("send");
+            //}
+            sleep(5);
+            printf("%X", means_fixed[49].final_value);
+            uint32_t value =  htonl(means_fixed[49].final_value);
+            //printf("%X\n",means_fixed[49].final_value);
+            //printf("sizeof final_value: %d", sizeof(means_fixed[49].final_value));
+            if (send(new_fd, &means_fixed[49].final_value, sizeof(uint32_t), NULL) == -1)
+            //if (send(new_fd, &value, sizeof(uint32_t), NULL) == -1)
+             {
+               perror("send");
+            }
+            
+            //int var = 10000;
+            //printf("send all: %d\n", sendall(new_fd, array, &var));
             
             count++;
-            usleep(1);
+            sleep(1);
             }
             close(new_fd);
             exit(0);
             
         }
+       
+       while(1)
+       {
+           
+       }
         close(new_fd);  // parent doesn't need this
     }
 

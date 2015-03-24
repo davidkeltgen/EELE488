@@ -46,21 +46,23 @@ int main(int argc, char** argv) {
     
     parseMeans();
     
-    parseStandards();
+    //parseStandards();
     
-    parseClassParams();
+    //parseClassParams();
     
    // printf("MAIN: Printing off parsed values\n");
     
   //  printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
     for (i = 0; i < 50; i++)
     {
-        printf("%f\n", means_fixed[i].input);
-        printf("%f\n", standards_fixed[i].input);
-        printf("%f\n", class_fixed[0][i].input);
+        printf("%f   %X \n", means_fixed[i].input, means_fixed[i].final_value);
+        //printf("%f\n", standards_fixed[i].input);
+        //printf("%f\n", class_fixed[0][i].input);
     }
     
     /* Send the files over the network */
+    
+    server();
     
     
 
