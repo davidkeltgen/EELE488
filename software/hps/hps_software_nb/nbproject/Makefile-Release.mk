@@ -36,10 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/classification.o \
+	${OBJECTDIR}/client.o \
 	${OBJECTDIR}/datacube.o \
-	${OBJECTDIR}/fixed_point.o \
 	${OBJECTDIR}/fpgamem.o \
-	${OBJECTDIR}/handler_funcs.o \
 	${OBJECTDIR}/logger.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/means.o \
@@ -76,25 +75,20 @@ ${OBJECTDIR}/classification.o: classification.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/classification.o classification.c
 
+${OBJECTDIR}/client.o: client.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/client.o client.c
+
 ${OBJECTDIR}/datacube.o: datacube.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/datacube.o datacube.c
 
-${OBJECTDIR}/fixed_point.o: fixed_point.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fixed_point.o fixed_point.c
-
 ${OBJECTDIR}/fpgamem.o: fpgamem.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fpgamem.o fpgamem.c
-
-${OBJECTDIR}/handler_funcs.o: handler_funcs.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/handler_funcs.o handler_funcs.c
 
 ${OBJECTDIR}/logger.o: logger.c 
 	${MKDIR} -p ${OBJECTDIR}

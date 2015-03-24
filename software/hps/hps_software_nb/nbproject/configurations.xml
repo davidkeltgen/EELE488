@@ -72,14 +72,12 @@
         <itemPath>Makefile</itemPath>
         <itemPath>classification.c</itemPath>
         <itemPath>classification.h</itemPath>
+        <itemPath>client.c</itemPath>
         <itemPath>datacube.c</itemPath>
         <itemPath>datacube.h</itemPath>
         <itemPath>defs.h</itemPath>
-        <itemPath>fixed_point.c</itemPath>
-        <itemPath>fixed_point.h</itemPath>
         <itemPath>fpgamem.c</itemPath>
         <itemPath>fpgamem.h</itemPath>
-        <itemPath>handler_funcs.c</itemPath>
         <itemPath>logger.c</itemPath>
         <itemPath>logger.h</itemPath>
         <itemPath>main.h</itemPath>
@@ -124,21 +122,17 @@
       </item>
       <item path="classification.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="client.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="datacube.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="datacube.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="defs.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="fixed_point.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="fixed_point.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="fpgamem.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="fpgamem.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="handler_funcs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="logger.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -261,21 +255,17 @@
       </item>
       <item path="classification.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="client.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="datacube.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="datacube.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="defs.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="fixed_point.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="fixed_point.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="fpgamem.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="fpgamem.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="handler_funcs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="logger.c" ex="false" tool="0" flavor2="0">
       </item>

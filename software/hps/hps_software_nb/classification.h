@@ -25,7 +25,7 @@
 *                                                 DEFINES
 *********************************************************************************************************
 */ 
-#define  CLASSIFICATION_PATH         	"/resonon/input/class/class.csv"
+//#define  CLASSIFICATION_PATH         	"/resonon/input/class/class.csv"
 #define  CLASSIFICATION_MATRIX_SIZE		1088   /*Could be read in from header file */
 #define  NUM_CLASSES					50
 
@@ -38,7 +38,7 @@ int class_size;   /*Could be read in from header file */
 int num_classes;   /*Could be read in from header file */
 
 /* prototypes */
-int parseClassParams(void);
+//int parseClassParams(void);
 
 #endif	/* CLASSIFICATION_H */
 

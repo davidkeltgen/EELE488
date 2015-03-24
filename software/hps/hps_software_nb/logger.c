@@ -23,10 +23,10 @@ void record(const char* message) {
     /*micro time*/
     struct  timeval tv;
     struct  timezone tz;
-    struct  tm *tm_s = malloc(sizeof (struct tm));
+    struct  tm *tm_s_log = malloc(sizeof (struct tm));
     gettimeofday(&tv, &tz);
-    tm_s = (struct tm *)localtime(&tv.tv_sec);
-    sprintf(theTime, "%d:%02d:%02d:%03d", tm_s->tm_hour, tm_s->tm_min, tm_s->tm_sec, (int)(tv.tv_usec / 1000));
+    tm_s_log = (struct tm *)localtime(&tv.tv_sec);
+    sprintf(theTime, "%d:%02d:%02d:%03d", tm_s_log->tm_hour, tm_s_log->tm_min, tm_s_log->tm_sec, (int)(tv.tv_usec / 1000));
 
     /*write the date and the message to the file*/
     fwrite("[", 1, 1, outfile);

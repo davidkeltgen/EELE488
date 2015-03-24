@@ -9,7 +9,7 @@
  *				*
  ****************************************************************************/
 
-#include "system.h"
+
 #include "fpgamem.h"
 
 
@@ -27,7 +27,7 @@ void delay()
 }
 
 
-/* Need to write to unsigned memory
+/* Need to write to unsigned memory */
 
 int fpga_mem_write(void)
 {
