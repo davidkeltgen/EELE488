@@ -6,25 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/logger.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/classification.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/standards.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/handler_funcs.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/means.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/defs.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/datacube.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/standards.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/server.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/datacube.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/means.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/server.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/main.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/fpgamem.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/classification.c</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/system.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/fpgamem.h</file>
-            <file>file:/home/dave/NetBeansProjects/EELE488/software/hps/hps_software_nb/client.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

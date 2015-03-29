@@ -34,7 +34,7 @@
 
 /* 2D classification matrix*/
 double * means_matrix;
-fixed means_fixed[MEANS_MATRIX_SIZE];
+uint32_t means_fixed[MEANS_MATRIX_SIZE];
 
 
 /* prototypes */
