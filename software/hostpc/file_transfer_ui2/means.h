@@ -36,6 +36,8 @@
 double * means_matrix;
 fixed means_fixed[MEANS_MATRIX_SIZE];
 
+uint32_t means_v[MEANS_MATRIX_SIZE];
+
 /* prototypes */
 int parseMeans(void);
 

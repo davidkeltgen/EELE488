@@ -47,6 +47,7 @@ int parseMeans() {
 
     	/*Convert the value to fixed*/
     	float2fixed(&means_fixed[i]);
+        means_v[i] = htonl(means_fixed[i].final_value);
         
     }
     close(file);

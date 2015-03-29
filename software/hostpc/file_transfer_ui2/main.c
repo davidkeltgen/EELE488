@@ -14,6 +14,7 @@
 int main(int argc, char** argv) {
     printf("program started\n");
     record("MAIN: Program started.\n");
+    char msg[256];
     
     int var, i, j;
     
@@ -53,9 +54,10 @@ int main(int argc, char** argv) {
    // printf("MAIN: Printing off parsed values\n");
     
   //  printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
-    for (i = 0; i < 50; i++)
+    for (i = 0; i < 1088; i++)
     {
-        printf("%f   %X \n", means_fixed[i].input, means_fixed[i].final_value);
+        sprintf(msg,"%f   %08X \n", means_fixed[i].input, means_v[i]);
+        record(msg);
         //printf("%f\n", standards_fixed[i].input);
         //printf("%f\n", class_fixed[0][i].input);
     }

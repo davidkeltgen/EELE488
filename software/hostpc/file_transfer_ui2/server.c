@@ -36,6 +36,8 @@
 
 #define BACKLOG 10     // how many pending connections queue will hold
 
+ssize_t write(int fd, const void *buf, size_t count);
+
 void sigchld_handler(int s)
 {
     while(waitpid(-1, NULL, WNOHANG) > 0);
@@ -54,6 +56,7 @@ void *get_in_addr(struct sockaddr *sa)
 int sendall(int s, char *buf, int *len)
 {
     printf("in sendall\n");
+    printf("length: %d\n", *len);
     int total = 0;        // how many bytes we've sent
     int bytesleft = *len; // how many we have left to send
     int n;
@@ -178,13 +181,36 @@ int server(void)
        struct timezone *tz;
        struct tm *tm;
        
+       /* Send means header */
+       
+       
+       /* Send means data */
+       
+       /* Send standard deviation header*/
+       
+       /* Send standard deviation data*/
+       
+       /* Send coefficient header*/
+       
+       /* Send send coefficient data*/
+       
+       /* Send dark datacube header*/
+       
+       /* Send dark datacube data*/
+       
+       //uint32_t smallarr[50];
+       //int i;
+       //for(i = 0; i < 50; i++)
+       //{
+       //     smallarr[i] = htonl(means_fixed[i].final_value);
+       //}
 
 
         if (!fork()) { // this is the child process
             close(sockfd); // child doesn't need the listener
             
-            while(count <1)
-            {
+            //while(count <1)
+            //{
             gettimeofday(&tv, &tz);
             tm = localtime(&tv.tv_sec);
             sprintf(msg, "%02d:%02d:%02d:%03d %d\0", tm->tm_hour, tm->tm_min, tm->tm_sec, (int)(tv.tv_usec / 1000), count);
@@ -194,32 +220,81 @@ int server(void)
             //{
             //   perror("send");
             //}
-            sleep(5);
-            printf("%X", means_fixed[49].final_value);
-            uint32_t value =  htonl(means_fixed[49].final_value);
+            sleep(3);
+            
+            /* Send means header */
+       
+            int means_matrix_size = 1088;
+            uint32_t value2 =  htonl(means_matrix_size);
+            printf("means size: %08d", value2);
+            write(new_fd, &value2, sizeof(means_matrix_size));
+       
+            /* Send means data */
+
+            write(new_fd, means_v, sizeof(uint32_t) * MEANS_MATRIX_SIZE );
+            
+            /* Send standard deviation header*/
+
+            /* Send standard deviation data*/
+
+            /* Send coefficient header*/
+
+            /* Send send coefficient data*/
+
+            /* Send dark datacube header*/
+
+            /* Send dark datacube data*/
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //printf("%X\n", means_fixed[49].final_value);
+            //uint32_t value =  htonl(means_fixed[49].final_value);
+            //printf("%X\n", value);
+            //printf("%X\n", ntohl(value));
             //printf("%X\n",means_fixed[49].final_value);
             //printf("sizeof final_value: %d", sizeof(means_fixed[49].final_value));
-            if (send(new_fd, &means_fixed[49].final_value, sizeof(uint32_t), NULL) == -1)
+            //if (send(new_fd, &means_fixed[49].final_value, sizeof(uint32_t), NULL) == -1)
             //if (send(new_fd, &value, sizeof(uint32_t), NULL) == -1)
-             {
-               perror("send");
-            }
+            // {
+            //   perror("send");
+            //}
+            
+            
+            //sleep(1);
+            
+            //write(new_fd, &means_matrix_size, sizeof(means_matrix_size));
+            
+            //write(new_fd, MEANS_MATRIX_SIZE, sizeof(MEANS_MATRIX_SIZE));
+                    
+            // sleep(1);       
+            
+            
             
             //int var = 10000;
-            //printf("send all: %d\n", sendall(new_fd, array, &var));
+            //printf("send all: %d\n", sendall(new_fd, (char)means_fixed_sending, &MEANS_MATRIX_SIZE));
             
-            count++;
-            sleep(1);
-            }
+            //count++;
+            //sleep(1);
+            //}
             close(new_fd);
             exit(0);
             
         }
        
-       while(1)
-       {
-           
-       }
+       //while(1)
+       //{
+       //    
+       //}
         close(new_fd);  // parent doesn't need this
     }
 
