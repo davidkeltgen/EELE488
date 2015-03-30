@@ -113,7 +113,7 @@ int parseBin(int cube_type) {
     int i, j, k;
     int counter = 0;
     int num_values = 0;
-    uint16_t var;
+    uint32_t var;
 
     //char * value = malloc(2 * sizeof (char));
 
@@ -171,8 +171,8 @@ int parseBin(int cube_type) {
                     var = c1;                               /* Set to first character */ 
                     var = var << 8;                         /* Shift var over 8 */                    
                     var = var + c2;                         /* Add second character to var (LS 8 bits)*/
-                    temp_matrix[i][j][k] = var;             /* Store it to matrix */
-                    //sprintf(msg, "datacube: %d\n", var); record(msg);
+                    temp_matrix[i][j][k] = htonl(var);             /* Store it to matrix */
+                    //sprintf(msg, "datacube[%d][%d][%d]: %d\n",i,j,k, var); record(msg);
                     counter++;
                     //sprintf(msg,"%d\n", counter);
                     //record(msg);
@@ -188,12 +188,17 @@ int parseBin(int cube_type) {
     if (cube_type == dark)
     {
         dark_matrix = temp_matrix;
+        return 0;
     }
     else if (cube_type == response)
     {
         response_matrix = temp_matrix;
+        return 0;
     }
+    else
+    {
     return 1;
+    }
 }
 
 /*Will print out the values of the datacube struct. This is just to verify that the

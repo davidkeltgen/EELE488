@@ -31,6 +31,9 @@
 #include <arpa/inet.h>
 
 #include "means.h"
+#include "standards.h"
+#include "classification.h"
+#include "datacube.h"
 
 #define PORT "3490"  // the port users will be connecting to
 
@@ -77,7 +80,7 @@ int sendall(int s, char *buf, int *len)
 int server(void)
 {
 	record("SERVER: Server started\n");
-	char msg[255];
+	char msg[256];
     int sockfd, new_fd;  // listen on sock_fd, new connection on new_fd
     struct addrinfo hints, *servinfo, *p;
     struct sockaddr_storage their_addr; // connector's address information
@@ -159,7 +162,7 @@ int server(void)
     //   }
     //   printf("\n");
     
-    //printf("server: waiting for connections...\n");
+    printf("server: waiting for connections...\n");
 
     while(1) {  // main accept() loop
         sin_size = sizeof their_addr;
@@ -180,37 +183,13 @@ int server(void)
        struct timeval tv;
        struct timezone *tz;
        struct tm *tm;
-       
-       /* Send means header */
-       
-       
-       /* Send means data */
-       
-       /* Send standard deviation header*/
-       
-       /* Send standard deviation data*/
-       
-       /* Send coefficient header*/
-       
-       /* Send send coefficient data*/
-       
-       /* Send dark datacube header*/
-       
-       /* Send dark datacube data*/
-       
-       //uint32_t smallarr[50];
-       //int i;
-       //for(i = 0; i < 50; i++)
-       //{
-       //     smallarr[i] = htonl(means_fixed[i].final_value);
-       //}
-
 
         if (!fork()) { // this is the child process
             close(sockfd); // child doesn't need the listener
             
-            //while(count <1)
-            //{
+            while(count <1)
+            {
+                printf("inside count\n");
             gettimeofday(&tv, &tz);
             tm = localtime(&tv.tv_sec);
             sprintf(msg, "%02d:%02d:%02d:%03d %d\0", tm->tm_hour, tm->tm_min, tm->tm_sec, (int)(tv.tv_usec / 1000), count);
@@ -223,79 +202,76 @@ int server(void)
             sleep(3);
             
             /* Send means header */
-       
-            int means_matrix_size = 1088;
-            uint32_t value2 =  htonl(means_matrix_size);
-            printf("means size: %08d", value2);
-            write(new_fd, &value2, sizeof(means_matrix_size));
-       
+
+            //uint32_t header =  htonl(MEANS_MATRIX_SIZE);
+           // sprintf(msg,"means");
+           // write(new_fd, msg, sizeof(msg));
+            
             /* Send means data */
 
-            write(new_fd, means_v, sizeof(uint32_t) * MEANS_MATRIX_SIZE );
+           // write(new_fd, means_v, sizeof(uint32_t) * MEANS_MATRIX_SIZE);
             
             /* Send standard deviation header*/
-
+            //sprintf(msg,"standards");
+            //write(new_fd, msg, 256);
             /* Send standard deviation data*/
 
+            //write(new_fd, standards_v, sizeof(uint32_t) * STANDARDS_MATRIX_SIZE);
             /* Send coefficient header*/
 
+            //header =  htonl(CLASSIFICATION_MATRIX_SIZE);
+            //sprintf(msg,"class");
+            //write(new_fd, msg, sizeof(msg));
             /* Send send coefficient data*/
+            
+            //int value = write(new_fd, class_v, sizeof(uint32_t) * CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES);
 
-            /* Send dark datacube header*/
+            //printf("# of bytes written: %d", value);
+            /* Send dark datacube header */
 
+            sprintf(msg,"dark datacube");
+            write(new_fd, msg, sizeof(msg));
+            
             /* Send dark datacube data*/
+            int i,j;
+            uint32_t * small_dark = malloc(sizeof(uint32_t) * 640);
+           // for(i = 0;i < 30; i++)
+           // {
+             //   for(j = 0; j < 240; j++)
+             //   {
+                small_dark = dark_matrix[0][0];
+                for(i = 0; i < 640; i++)
+                {
+                    //printf("sd %d\n", small_dark[i]);
+                }
+                printf("wrote %d bytes\n", write(new_fd, small_dark, sizeof(uint32_t) * 640));
+             //   }
+           // }
+            
+            //write(new_fd, dark_matrix, sizeof(uint32_t) * dark_cube->lines * dark_cube->bands * dark_cube->samples);
             
             
+            /* Send light datacube header */
             
+            //sprintf(msg,"light datacube");
+            //write(new_fd, msg, sizeof(msg));
             
+            /* Send light datacube data*/
+            //write(new_fd, response_matrix, sizeof(uint32_t) * response_cube.lines * response_cube.bands * response_cube.samples);
             
-            
-            
-            
-            
-            
-            
-            
-            
-            //printf("%X\n", means_fixed[49].final_value);
-            //uint32_t value =  htonl(means_fixed[49].final_value);
-            //printf("%X\n", value);
-            //printf("%X\n", ntohl(value));
-            //printf("%X\n",means_fixed[49].final_value);
-            //printf("sizeof final_value: %d", sizeof(means_fixed[49].final_value));
-            //if (send(new_fd, &means_fixed[49].final_value, sizeof(uint32_t), NULL) == -1)
-            //if (send(new_fd, &value, sizeof(uint32_t), NULL) == -1)
-            // {
-            //   perror("send");
-            //}
-            
-            
-            //sleep(1);
-            
-            //write(new_fd, &means_matrix_size, sizeof(means_matrix_size));
-            
-            //write(new_fd, MEANS_MATRIX_SIZE, sizeof(MEANS_MATRIX_SIZE));
-                    
-            // sleep(1);       
-            
-            
-            
-            //int var = 10000;
-            //printf("send all: %d\n", sendall(new_fd, (char)means_fixed_sending, &MEANS_MATRIX_SIZE));
-            
-            //count++;
+            count++;
             //sleep(1);
             //}
-            close(new_fd);
-            exit(0);
-            
+            //close(new_fd);
+            //exit(0);
+            }
         }
-       
-       //while(1)
-       //{
-       //    
-       //}
+       while(1)
+       {
+           
+       }
         close(new_fd);  // parent doesn't need this
+        exit(0);
     }
 
     return 0;

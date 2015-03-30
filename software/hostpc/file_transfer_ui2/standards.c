@@ -33,17 +33,20 @@ int parseStandards() {
     	if(i == STANDARDS_MATRIX_SIZE -1)
         {
             fscanf(file, "%f", &standards_fixed[i].input);
+            //sprintf(msg,"STANDARDS: i: %d  value %f\n",i, standards_fixed[i].input); record(msg);
 
         }
         else
         {
             fscanf(file, "%f,", &standards_fixed[i].input);
+            //sprintf(msg,"STANDARDS: i: %d  value %f\n",i, standards_fixed[i].input); record(msg);
         }
 
     	standards_fixed[i].type = standards;
 
     	/*Convert the value to fixed*/
     	float2fixed(&standards_fixed[i]);
+        standards_v[i] = htonl(standards_fixed[i].final_value);
 
     }
 

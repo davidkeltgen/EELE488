@@ -36,6 +36,8 @@
 double * standards_matrix;
 fixed standards_fixed[STANDARDS_MATRIX_SIZE];
 
+uint32_t standards_v[STANDARDS_MATRIX_SIZE];
+
 /* prototypes */
 int parseStandards(void);
 

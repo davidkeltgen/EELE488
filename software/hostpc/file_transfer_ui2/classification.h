@@ -36,6 +36,8 @@
 double ** class_matrix;
 fixed **class_fixed;
 
+uint32_t class_v[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
+
 int class_size;   /*Could be read in from header file */
 int num_classes;   /*Could be read in from header file */
 

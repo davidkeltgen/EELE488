@@ -24,6 +24,12 @@ int parseClassParams() {
     	class_fixed[i] = (fixed *)malloc(NUM_CLASSES * sizeof(fixed));
     }
     
+    //class_v = (uint32_t **)malloc(sizeof(uint32_t*) * CLASSIFICATION_MATRIX_SIZE);
+    //for(i = 0; i < CLASSIFICATION_MATRIX_SIZE; i++)
+    //{
+   // 	class_fixed[i] = (uint32_t *)malloc(NUM_CLASSES * sizeof(uint32_t));
+    //}
+    
     //struct fixed class_fixed[CLASSIFICATION_MATRIX_SIZE][NUM_CLASSES];
     float var;
     /* Read in Values from CSV */
@@ -51,12 +57,14 @@ int parseClassParams() {
             {
                 //printf("inside if\n");
             	fscanf(file, "%f", &class_fixed[i][j].input);
+                //sprintf(msg,"CLASS: i: %d  value %f\n",i, class_fixed[i][j].input); record(msg);
                 
             }
             else
             {
                 //sprintf(msg,"File info: %s  %d\n", CLASSIFICATION_PATH, (int)file);
                 fscanf(file, "%f,", &class_fixed[i][j].input);
+                //sprintf(msg,"CLASS: i: %d j: %d  value %f\n",i,j, class_fixed[i][j].input); record(msg);
                // sprintf(msg,"inside else %d %d %d %d \n", i,j,var, (int)file); record(msg);
                 //sprintf(msg,"var :%f\n", class_fixed[i][j].input); record(msg);
 
@@ -65,6 +73,7 @@ int parseClassParams() {
             //printf("%d\n", counter++);
             /*Convert the value to fixed*/
             float2fixed(&class_fixed[i][j]);
+            class_v[i][j] = htonl(class_fixed[i][j].final_value);
         }
     }
     
