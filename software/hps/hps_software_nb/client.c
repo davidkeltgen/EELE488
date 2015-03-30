@@ -15,10 +15,13 @@
 #include <arpa/inet.h>
 
 #include "means.h"
+#include "standards.h"
+#include "classification.h"
+#include "datacube.h"
 
 #define PORT "3490" // the port client will be connecting to 
 
-#define MAXDATASIZE 1460 // max number of bytes we can get at once 
+#define MAXDATASIZE 1049 // max number of bytes we can get at once 
 
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr_client(struct sockaddr *sa)
@@ -36,11 +39,11 @@ int client(char * argv)
     printf("%s\n", argv);
     //printf("hello1\n");
     int sockfd, numbytes;  
-    char buf[4];
+    char buf[1088 * 50];
     struct addrinfo hints, *servinfo, *p;
     int rv;
     char s[INET6_ADDRSTRLEN];
-    char msg[256];
+    char msg[512];
 
     //if (argc != 2) {
     //    fprintf(stderr,"usage: client hostname\n");
@@ -83,89 +86,196 @@ int client(char * argv)
     printf("client: connecting to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
-    int numbytes_total = 0;
-    //while(1)
-    //{
         
-        /* Receive Header */
-        if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
-            perror("recv");
-            exit(1);
-        }
-         printf("client: received numbytes         '%d'\n",numbytes);
-         
-         
-        /* Receive Header */ 
-        if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
-            perror("recv");
-            exit(1);
-        }
-         printf("client: received numbytes         '%d'\n",numbytes);
-         //printf("number is: %08X\n", buf);
-         //printf("number is: %s\n", buf);
-        
+//        /* Receive Header */
+//        if ((numbytes = recv(sockfd, buf, MAXDATASIZE, 0)) == -1) {
+//            perror("recv");
+//            exit(1);
+//        }
+//         //printf("means client h : received numbytes         '%d'\n",numbytes);
+//         //printf("%s\n", buf);
+//         
+//         
+//        /* Receive Data */ 
+//        if ((numbytes = recv(sockfd, buf, sizeof(uint32_t) * MEANS_MATRIX_SIZE, 0)) == -1) {
+//            perror("recv");
+//            exit(1);
+//        }
+//         //printf("means client d : received numbytes         '%d'\n",numbytes);
+//        
+//        uint32_t number;
+//        
+//        int n = 0;
+//        int count = 0;
+//        while(n < numbytes)
+//        {
+//                number = buf[n++]; number = number << 8;
+//                number = number + buf[n++]; number = number << 8;
+//                number = number + buf[n++]; number = number << 8;
+//                number = number + buf[n++];
+//        
+//                
+//                means_fixed[count] = number; 
+//                //sprintf(msg,"means number is: %08X   %d\n", means_fixed[count], count);
+//                //record(msg);
+//                count++;
+//        }
+//        
+//        /* Receive Header */
+//        if ((numbytes = recv(sockfd, buf, MAXDATASIZE, 0)) == -1) {
+//            perror("recv");
+//            exit(1);
+//        }
+//         //printf("standards client h : received numbytes         '%d'\n",numbytes);
+//         //printf("%s\n", buf);
+//         
+//         
+//        /* Receive Data */ 
+//        if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * STANDARDS_MATRIX_SIZE, 0)) == -1) {
+//            perror("recv");
+//            exit(1);
+//        }
+//        //printf("standards client d : received numbytes         '%d'\n",numbytes);
+//        //printf("%s\n", buf);
+//        n = 0;
+//        count = 0;
+//        while(n < numbytes)
+//        {
+//                number = buf[n++]; number = number << 8;
+//                number = number + buf[n++]; number = number << 8;
+//                number = number + buf[n++]; number = number << 8;
+//                number = number + buf[n++];
+//                
+//                standards_fixed[count] = number; 
+//                //sprintf(msg,"standards number is: %08X   %d\n", standards_fixed[count], count); record(msg);
+//                count++;
+//        }
+//        
+//                /* Receive Header */
+//        if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
+//            perror("recv");
+//            exit(1);
+//        }
+//         //printf("class header client : received numbytes         '%d'\n",numbytes);
+//         //printf("%s\n", buf);
+//         
+//         
+//        /* Receive Data */ 
+//         int i;
+//         for(i = 0; i < 1088; i++)
+//         {
+//            //if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES, 0)) == -1) {
+//                if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * 50, 0)) == -1) {
+//                perror("recv");
+//                exit(1);
+//            }
+//            //sprintf(msg,"class data client: received numbytes         '%d' %d\n",numbytes, i); record(msg);
+//
+//            n = 0;
+//            count = 0;
+//            while(n < numbytes)
+//            {
+//                    number = buf[n++]; number = number << 8;
+//                    number = number + buf[n++]; number = number << 8;
+//                    number = number + buf[n++]; number = number << 8;
+//                    number = number + buf[n++];
+//
+//                    class_fixed[i][count] = number; 
+//                    //sprintf(msg,"class number is: %08X   %d  %d\n", class_fixed[i][count], i, count); record(msg);
+//                    
+//                    count++;
+//            }
+//         }
+    
+    
+    
+    
         uint32_t number;
-        
+     
         int n = 0;
         int count = 0;
-        while(n < numbytes)
-        {
-                number = buf[n++]; number = number << 8;
-                number = number + buf[n++]; number = number << 8;
-                number = number + buf[n++]; number = number << 8;
-                number = number + buf[n++];
-        
-                printf("number is: %08X\n", number);
-                means_fixed[count] = number;               
-                count++;
-        }
-        
-        //char c1,c2,c3,c4;
-        
-       // fscanf(file, "%c%c", &c1, &c2);         /* Scan in two characters */
-//                    var = c1;                               /* Set to first character */ 
-//                    var = var << 8;                         /* Shift var over 8 */                    
-//                    var = var + c2;
-        //numbytes_total = numbytes_total + numbytes;
         //char msg[256];
-        //printf("int representation: %08X\n", (uint32_t)*buf);
-       // printf("buf is %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X \n",buf[0], buf[1], buf[2], buf[3],buf[4], buf[5], buf[6], buf[7],buf[8], buf[9], buf[10], buf[11]);
-        //uint32_t var = ntohl(buf);
-        //printf("var is %08X", var);
-        //printf("buf is %02X %02X %02X %02X %c %c %c %c\n",var[0], var[1], var[2], var[3], (int)var[0], (int)var[1], (int)var[2], (int)var[3]);
-        //buf[numbytes] = '\0';
+    
+             /* Receive Header */
+        if ((numbytes = recv(sockfd, buf, 256, 0)) == -1) {
+            perror("recv");
+            exit(1);
+        }
+         printf("class header client : received numbytes         '%d'\n",numbytes);
+         printf("%s\n", buf);
+         
+         
+        /* Receive Data */ 
+         int i,j;
+         /* For each line */
+         //for(i = 0; i < 30; i++)
+        // {
+            // for(j = 0; j < 240; j++)
+            // {
+            //if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * CLASSIFICATION_MATRIX_SIZE * NUM_CLASSES, 0)) == -1) {
+                if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * 640, 0)) == -1) {
+                perror("recv");
+                exit(1);
+                }
+                printf("class data client: received numbytes '%d' should be 2560\n",numbytes);// record(msg);
 
-        if(numbytes == 0)
-        {
-            printf("inside numbytes = 0\n");
-            int i;
-            for(i = 0; i < 1088; i++)
+                n = 0;
+                count = 0;
+                while(n < numbytes)
+                {
+                    printf("in while\n");
+                        //printf("%02X\n",(int)buf[n]);
+                        number = buf[n++]; number = number << 8;
+                        number = number + buf[n++]; number = number << 8;
+                        number = number + buf[n++]; number = number << 8;
+                        number = number + buf[n++];
+                        //printf("%08X\n", number);
+                        dark_matrix[0][0][count] = number; 
+                        //sprintf(msg,"class number is: %08X   %d  %d\n", class_fixed[i][count], i, count); record(msg);
+
+                        count++;
+                }
+                
+
+                    
+            // }
+        // }
+                         printf("Printing off datacube values in client\n");
+                
+                for(i = 0; i < 640;i++)
+                {
+                    sprintf(msg,"datacube[0][0][%d] number is: %08X\n", i, dark_matrix[0][0][i]); record(msg);
+                }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ //       printf("Done reading classification vectors\n");
+        /* */
+
+ //           int j;
+ //           for(i = 0; i < 1088; i++)
+ //           {
+ //               sprintf(msg,"meansfixed[%d]:     %08X\n", i, means_fixed[i]); record(msg);
+ //               sprintf(msg,"standardsfixed[%d]:  %08X\n", i, standards_fixed[i]); record(msg);
+ //               for(j = 0; j < 50; j++)
+ //               {
+ //                   sprintf(msg,"classfixed[%d][%d]:  %08X\n", i,j, class_fixed[i][j]); record(msg);
+//                }
+//            }
+ //           printf("done printing\n");
+            while(1)
             {
-                sprintf(msg,"meansfixed[%d]: %08X\n", i, means_fixed[i]);
-                record(msg);
+            
             }
-            close(sockfd);
-            
-        }
-        else
-        {
-        //    printf("client: received buf              '%s'\n",buf);
-        //    printf("client: received numbytes         '%d'\n",numbytes);
-        //    printf("client: received numbytes total   '%d'\n",numbytes_total);
-            //
-        }
-        
-       // int i;
-       // for(i = 0; i < numbytes_total; i++)
-        //{   
-            
-            //sprintf(msg2,"i: %d char int buf:%X\n", i,(int)buf[i]);
-            //record(msg2);
-            //sprintf(msg2,"int buf:%d\n", (int)buf[i]);
-            //record(msg2);
-        //}
-    //}
-
     close(sockfd);
 
     return 0;

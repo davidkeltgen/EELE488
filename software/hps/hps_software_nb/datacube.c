@@ -12,7 +12,7 @@
 // ****************************************************************************/
 //
 //
-//#include "datacube.h"
+#include "datacube.h"
 //
 //int parseHdr(int cube_type) {
 //    record("DATACUBE:  Inside parseHdr.\n");
@@ -93,7 +93,7 @@
 //    return 0;
 //}
 //
-//int parseBin(int cube_type) {
+int parseBin() {
 //
 //    /*pseudocode */
 //    /*For line in num_lines:
@@ -103,7 +103,7 @@
 //
 //
 //
-//    record("DATACUBE: Inside parseBin\n");
+    record("DATACUBE: Inside parseBin\n");
 //
 //    datacube * temp_cube = malloc(sizeof (datacube));
 //    FILE* file;
@@ -117,31 +117,39 @@
 //
 //    //char * value = malloc(2 * sizeof (char));
 //
-//    /*Allocate memory for matrices */
-//    if (cube_type == dark) {
-//        strcpy(filepath, RESPONSE_BINARY_PATH);
-//        temp_cube = dark_cube;
-//        
-//        num_values = dark_cube->lines * dark_cube->bands * dark_cube->samples;
-//        dark_matrix = (uint32_t ***) malloc(num_values * sizeof (uint16_t));
-//        for (i = 0; i < dark_cube->lines; i++) {
-//            dark_matrix[i] = (uint32_t **) malloc(dark_cube->bands * sizeof (uint16_t *));
-//            for (j = 0; j < temp_cube->bands; j++) {
-//                dark_matrix[i][j] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint16_t));
-//            }
-//        }
-//    } else if (cube_type == response) {
-//        strcpy(filepath, DARK_BINARY_PATH);
-//        temp_cube = response_cube;
-//        
-//        response_matrix = (uint16_t ***) malloc(num_values * sizeof (uint16_t));
-//        for (i = 0; i < temp_cube->lines; i++) {
-//            temp_matrix[i] = (uint16_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
-//            for (j = 0; j < temp_cube->bands; j++) {
-//                temp_matrix[i][j] = (uint16_t *) malloc(temp_cube->samples * sizeof (uint16_t));
-//            }
-//    }
-//    }
+    /*Allocate memory for matrices */
+    //if (cube_type == dark) {
+        //strcpy(filepath, RESPONSE_BINARY_PATH);
+        //temp_cube = dark_cube;
+    datacube * dark_cube = malloc(sizeof (datacube));
+        
+        dark_cube->lines = 30;
+        dark_cube->bands = 240;
+        dark_cube->samples = 640;
+                
+        int i,j;
+        
+        int num_values = dark_cube->lines * dark_cube->bands * dark_cube->samples;
+        dark_matrix = (uint32_t ***) malloc(num_values * sizeof (uint32_t));
+        for (i = 0; i < dark_cube->lines; i++) {
+            dark_matrix[i] = (uint32_t **) malloc(dark_cube->bands * sizeof (uint32_t *));
+            for (j = 0; j < dark_cube->bands; j++) {
+                dark_matrix[i][j] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint32_t));
+            }
+        }
+    //} else if (cube_type == response) {
+    //    strcpy(filepath, DARK_BINARY_PATH);
+    //    temp_cube = response_cube;
+        
+    //    response_matrix = (uint16_t ***) malloc(num_values * sizeof (uint16_t));
+    //    for (i = 0; i < temp_cube->lines; i++) {
+    //        temp_matrix[i] = (uint16_t **) malloc(temp_cube->bands * sizeof (uint16_t *));
+     //       for (j = 0; j < temp_cube->bands; j++) {
+     //           temp_matrix[i][j] = (uint16_t *) malloc(temp_cube->samples * sizeof (uint16_t));
+     //       }
+        return 0;
+    }
+    
 //
 //    num_values = temp_cube->lines * temp_cube->bands * temp_cube->samples;
 //

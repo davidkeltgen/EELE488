@@ -86,7 +86,7 @@ uint32_t *** temp_matrix;
 
 /* prototypes */
 int parseHdr(int cube_type);
-int parseBin(int cube_type);
+int parseBin();
 void printHdr(int cube_type);
 
 #endif	/* DATACUBE_H */

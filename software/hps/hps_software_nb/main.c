@@ -14,6 +14,8 @@
 int main(int argc, char** argv) {
     record("MAIN: Program started.\n");
     int var, i, j;
+    
+    parseBin();
 
     /* get data*/
     var = client("127.0.0.1");

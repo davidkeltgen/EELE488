@@ -33,6 +33,7 @@
 
 /* 2D classification matrix*/
 double * standards_matrix;
+uint32_t standards_fixed[STANDARDS_MATRIX_SIZE];
 
 /* prototypes */
 int parseStandards(void);
