@@ -5,16 +5,16 @@
  * Created on January 24, 2015, 12:48 PM
  */
 
- #include "main.h"
- 
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
+
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+    printf("program started\n");
     record("MAIN: Program started.\n");
+    char msg[256];
     
     int var, i, j;
     
@@ -24,43 +24,84 @@ int main(int argc, char** argv) {
     var = parseHdr(dark);                                                       
     if (var == 0) {
         record("MAIN: Dark datacube header parsed correctly.\n");
-        printHdr(dark);
+        //printHdr(dark);
         /* Parse the binary file. */
-        parseBin(dark); 
+        var = parseBin(dark); 
+        printf("parsebin returned: %d\n", var);
 
     } else {
         record("MAIN: Dark datacube header did not parse correctly!\n");
     }
-
+    record("MAIN: Dark datacube parsed\n");
     /* Parse the header file for response. */
-    var = parseHdr(response); 
+    //var = parseHdr(response); 
 
-    if (var == 0) {
-        record("MAIN: Response datacube parsed correctly.\n");
-        printHdr(response);
+   // if (var == 0) {
+   //     record("MAIN: Response datacube parsed correctly.\n");
+        //printHdr(response);
 
         /* Parse the binary file. */
-        var = parseBin(response);
-    } else {
-        record("MAIN: Response datacube did not parse correctly!\n");
-    }
+   //     parseBin(response);
+   // } else {
+     //   record("MAIN: Response datacube did not parse correctly!\n");
+    //}
     
-    parseMeans();
+    printf("Printing dark cube hex values");
     
-    parseStandards();
-    
-    parseClassParams();
-    
-    printf("MAIN: Printing off parsed values\n");
-    
-    printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
-    for (i = 0; i < 50; i++)
+    for(i = 0; i < 640;i++)
     {
-        printf("%lf %lf %lf\n", means_matrix[i], standards_matrix[i], class_matrix[0][i] );
+        sprintf(msg,"Hex value is: datacube[0][0][%d]%08X  %d %s\n",i,dark_matrix[0][0][i], dark_matrix[0][0][i], (char)(dark_matrix[0][0][i]) );
+        record(msg);
     }
     
+    //parseMeans();
+    
+    //parseStandards();
+    
+    //parseClassParams();
+    
+   // printf("MAIN: Printing off parsed values\n");
+    
+    //printf("MAIN: means and standard deviation and classification parameters(first row)...\n");
+    //for (i = 0; i < 1088; i++)
+    //{
+    //            sprintf(msg,    "meansfixed[%d]:          %08X\n", i, means_v[i]); record(msg);
+    //            sprintf(msg,    "standardsfixed[%d]:      %08X\n", i, standards_v[i]); record(msg);
+    //            for(j = 0; j < 50; j++)
+    //            {
+    //                sprintf(msg,"classfixed[%d][%d]:      %08X\n", i,j, class_v[i][j]); record(msg);
+    //            }
+    //}
+    
+    
+        /*micro time*/
+    struct timeval tv;
+    struct timezone *tz;
+    struct tm *tm;
+    
+    int count = 0;
+    gettimeofday(&tv, &tz);
+    tm = localtime(&tv.tv_sec);
+    sprintf(msg, "%02d:%02d:%02d:%03d %d\0", tm->tm_hour, tm->tm_min, tm->tm_sec, (int)(tv.tv_usec / 1000), count);
     /* Send the files over the network */
     
+    /* Setup the connection */
+    server();
+    /* Send the data */
+    //server();  
+    sendMeans();
+    
+    //sendStandards();
+    
+    //sendClass();
+    
+    //sendDatacube(dark);
+    //sendDatacube(response);
+    
+    
+    /* Now wa*/
+    client(argv[1]);
+   
 
     return (EXIT_SUCCESS);
 }
