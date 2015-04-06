@@ -22,9 +22,10 @@
 *********************************************************************************************************
 *                                                 DEFINES
 *********************************************************************************************************
-*/
-#define MAP_SIZE 0x800000
-#define MAP_MASK (MAP_SIZE - 1)
+*/ 
+/*Mask size should cover everything for means, standard deviation, and classification parameters */
+#define REGRESSION_MAP_SIZE 0x800000
+#define REGRESSION_MAP_MASK (REGRESSION_MAP_SIZE - 1)
 
 #define FATAL do { fprintf(stderr, "Error at line %d, file %s (%d) [%s]\n", \
   __LINE__, __FILE__, errno, strerror(errno)); exit(1); } while(0)
@@ -35,5 +36,5 @@
 /* Prototypes */
 void record(const char* message);
 
-#endif	/* LOGGER_H */
+#endif	/* FPGAMEM_H */
 

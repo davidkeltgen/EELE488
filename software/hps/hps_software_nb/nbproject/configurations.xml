@@ -70,23 +70,15 @@
           </logicalFolder>
         </logicalFolder>
         <itemPath>Makefile</itemPath>
-        <itemPath>classification.c</itemPath>
-        <itemPath>classification.h</itemPath>
         <itemPath>client.c</itemPath>
-        <itemPath>datacube.c</itemPath>
-        <itemPath>datacube.h</itemPath>
         <itemPath>defs.h</itemPath>
         <itemPath>fpgamem.c</itemPath>
         <itemPath>fpgamem.h</itemPath>
         <itemPath>logger.c</itemPath>
         <itemPath>logger.h</itemPath>
         <itemPath>main.h</itemPath>
-        <itemPath>means.c</itemPath>
-        <itemPath>means.h</itemPath>
         <itemPath>server.c</itemPath>
         <itemPath>server.h</itemPath>
-        <itemPath>standards.c</itemPath>
-        <itemPath>standards.h</itemPath>
         <itemPath>system.h</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
@@ -118,15 +110,7 @@
       </compileType>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="classification.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="classification.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="client.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="datacube.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="datacube.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="defs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -143,10 +127,6 @@
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="means.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="means.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resonon/input/class/class.csv" ex="false" tool="3" flavor2="0">
       </item>
@@ -221,10 +201,6 @@
       <item path="server.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="server.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="standards.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="standards.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="system.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -251,15 +227,7 @@
       </compileType>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="classification.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="classification.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="client.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="datacube.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="datacube.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="defs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -276,10 +244,6 @@
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="means.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="means.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resonon/input/class/class.csv" ex="false" tool="3" flavor2="0">
       </item>
@@ -354,10 +318,6 @@
       <item path="server.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="server.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="standards.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="standards.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="system.h" ex="false" tool="3" flavor2="0">
       </item>

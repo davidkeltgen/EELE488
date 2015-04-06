@@ -35,15 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/classification.o \
 	${OBJECTDIR}/client.o \
-	${OBJECTDIR}/datacube.o \
 	${OBJECTDIR}/fpgamem.o \
 	${OBJECTDIR}/logger.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/means.o \
-	${OBJECTDIR}/server.o \
-	${OBJECTDIR}/standards.o
+	${OBJECTDIR}/server.o
 
 
 # C Compiler Flags
@@ -70,20 +66,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/hps_software_nb: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/hps_software_nb ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/classification.o: classification.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/classification.o classification.c
-
 ${OBJECTDIR}/client.o: client.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/client.o client.c
-
-${OBJECTDIR}/datacube.o: datacube.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/datacube.o datacube.c
 
 ${OBJECTDIR}/fpgamem.o: fpgamem.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -100,20 +86,10 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
-${OBJECTDIR}/means.o: means.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/means.o means.c
-
 ${OBJECTDIR}/server.o: server.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/server.o server.c
-
-${OBJECTDIR}/standards.o: standards.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/standards.o standards.c
 
 # Subprojects
 .build-subprojects:

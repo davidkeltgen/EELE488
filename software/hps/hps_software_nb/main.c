@@ -14,11 +14,15 @@
 int main(int argc, char** argv) {
     record("MAIN: Program started.\n");
     int var, i, j;
-    
-    parseBin();
-
+   
+    printf("flag1\n");
+    printf("address! %s\n,", argv[1]);
+    printf("flag2\n");
     /* get data*/
-    var = client("127.0.0.1");
+    /* Give client the IP of the server*/
+    var = client(argv[1]);
+    
+    closeClient();
     printf("var: %d\n",var);
     
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +47,7 @@ int main(int argc, char** argv) {
         }
     }
     
-    /* Done with writing classification parameters to onchip memory, tell regression component it can start computing */
+    
 
     // send datacube values using the SGDMA module
     

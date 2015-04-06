@@ -20,10 +20,6 @@
 
 
 #include "system.h"
-#include "means.h"
-#include "standards.h"
-#include "classification.h"
-#include "datacube.h"
 
 /* Filepaths for datacube files. */
 /* For now, just starting with one response cube and one dark cube
