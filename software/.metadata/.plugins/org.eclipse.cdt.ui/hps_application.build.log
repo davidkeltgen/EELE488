@@ -1,0 +1,100 @@
+11:48:22 **** Incremental Build of configuration Debug for project hps_application ****
+make all 
+'Building file: ../fpgamem.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -lm -MMD -MP -MF"fpgamem.d" -MT"fpgamem.d" -o "fpgamem.o" "../fpgamem.c"
+../fpgamem.c: In function 'fpga_mem_write':
+../fpgamem.c:75:9: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
+         gettimeofday(&tv, &tz);
+         ^
+../fpgamem.c:132:17: warning: format '%d' expects argument of type 'int', but argument 4 has type 'long unsigned int' [-Wformat=]
+                 sprintf(msg,"means[%d]: %d\n", rdidx, *((unsigned long*)(virt_addr + (MEANS_OFFSET + (rdidx * 4))))); record(msg);
+                 ^
+../fpgamem.c:111:13: warning: unused variable 'j' [-Wunused-variable]
+         int j;
+             ^
+../fpgamem.c:74:21: warning: variable 'tm_s' set but not used [-Wunused-but-set-variable]
+         struct  tm *tm_s = malloc(sizeof (struct tm));
+                     ^
+../fpgamem.c:43:24: warning: unused variable 'CLASS_OFFSET' [-Wunused-variable]
+         const uint32_t CLASS_OFFSET             = REGRESSION_OFFSET + 0x00100000;
+                        ^
+../fpgamem.c:26:14: warning: unused variable 'theTime' [-Wunused-variable]
+         char theTime[256];
+              ^
+../fpgamem.c: In function 'fpga_mem_read':
+../fpgamem.c:208:18: warning: unused variable 'num_frames' [-Wunused-variable]
+         uint32_t num_frames = *((unsigned long*)(virt_addr + (COUNTER_OFFSET)));
+                  ^
+../fpgamem.c:191:15: warning: unused variable 'access_addr' [-Wunused-variable]
+         void* access_addr;
+               ^
+../fpgamem.c:185:9: warning: unused variable 'calc_done' [-Wunused-variable]
+     int calc_done;
+         ^
+../fpgamem.c:178:20: warning: unused variable 'INNER_PRODUCT_OFFSET' [-Wunused-variable]
+     const uint32_t INNER_PRODUCT_OFFSET     = REGRESSION_OFFSET + 0x00200000;
+                    ^
+../fpgamem.c:177:20: warning: unused variable 'CALC_COMPLETE' [-Wunused-variable]
+     const uint32_t CALC_COMPLETE            = REGRESSION_OFFSET + 0x00000008;
+                    ^
+../fpgamem.c:176:20: warning: unused variable 'ENABLE_CALC' [-Wunused-variable]
+     const uint32_t ENABLE_CALC              = REGRESSION_OFFSET + 0x00000004;
+                    ^
+../fpgamem.c:176:20: warning: 'REGRESSION_OFFSET' is used uninitialized in this function [-Wuninitialized]
+'Finished building: ../fpgamem.c'
+' '
+'Building file: ../handler_funcs.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -lm -MMD -MP -MF"handler_funcs.d" -MT"handler_funcs.d" -o "handler_funcs.o" "../handler_funcs.c"
+../handler_funcs.c:39:6: warning: "/*" within comment [-Wcomment]
+      /* Extract the fraction portion of the */
+ ^
+'Finished building: ../handler_funcs.c'
+' '
+'Building file: ../logger.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -lm -MMD -MP -MF"logger.d" -MT"logger.d" -o "logger.o" "../logger.c"
+'Finished building: ../logger.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -lm -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:28:5: warning: implicit declaration of function 'fpga_mem_write' [-Wimplicit-function-declaration]
+     fpga_mem_write();
+     ^
+../main.c:16:17: warning: unused variable 'j' [-Wunused-variable]
+     int var, i, j;
+                 ^
+../main.c:16:14: warning: unused variable 'i' [-Wunused-variable]
+     int var, i, j;
+              ^
+../main.c:16:9: warning: unused variable 'var' [-Wunused-variable]
+     int var, i, j;
+         ^
+'Finished building: ../main.c'
+' '
+'Building file: ../server.c'
+'Invoking: GCC C Compiler'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -lm -MMD -MP -MF"server.d" -MT"server.d" -o "server.o" "../server.c"
+../server.c: In function 'server':
+../server.c:53:2: warning: implicit declaration of function 'record' [-Wimplicit-function-declaration]
+  record("SERVER: Server started\n");
+  ^
+../server.c:144:13: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
+             gettimeofday(&tv, &tz);
+             ^
+../server.c:146:13: warning: embedded '\0' in format [-Wformat-contains-nul]
+             sprintf(msg, "%02d:%02d:%02d:%03d %d\0", tm->tm_hour, tm->tm_min, tm->tm_sec, (int)(tv.tv_usec / 1000), count);
+             ^
+'Finished building: ../server.c'
+' '
+'Building target: hps_application'
+'Invoking: GCC C Linker'
+arm-linux-gnueabihf-gcc  -o "hps_application"  ./client.o ./fixed_point.o ./fpgamem.o ./handler_funcs.o ./logger.o ./main.o ./server.o   -lm
+'Finished building target: hps_application'
+' '
+
+11:48:23 Build Finished (took 1s.13ms)
+

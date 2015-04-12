@@ -1,14 +1,44 @@
-20:58:42 **** Clean-only build of configuration Debug for project onchipmem ****
-make clean 
-rm -rf  ./main.o   ./main.d   onchipmem 
-' '
-20:58:43 **** Build of configuration Debug for project onchipmem ****
+08:05:10 **** Incremental Build of configuration Debug for project hps_application ****
 make all 
-'Building file: ../main.c'
+'Building file: ../fpgamem.c'
 'Invoking: GCC C Compiler'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
-../main.c:19:37: fatal error: altera_avalon_fifo_regs.h: No such file or directory
- #include "altera_avalon_fifo_regs.h"
-                                     ^
-compilation terminated.
-make: *** [main.o] Error 1
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fpgamem.d" -MT"fpgamem.d" -o "fpgamem.o" "../fpgamem.c"
+../fpgamem.c: In function 'fpga_mem_write':
+../fpgamem.c:79:9: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
+         gettimeofday(&tv, &tz);
+         ^
+../fpgamem.c:83:18: warning: variable 'testarr' set but not used [-Wunused-but-set-variable]
+         uint32_t testarr[512];
+                  ^
+../fpgamem.c:78:21: warning: variable 'tm_s' set but not used [-Wunused-but-set-variable]
+         struct  tm *tm_s = malloc(sizeof (struct tm));
+                     ^
+../fpgamem.c:43:24: warning: unused variable 'CLASS_OFFSET' [-Wunused-variable]
+         const uint32_t CLASS_OFFSET             = (REGRESSION_OFFSET + 0x00100000);
+                        ^
+../fpgamem.c:35:24: warning: unused variable 'FPGA_SYSID_OFFSET' [-Wunused-variable]
+         const uint32_t FPGA_SYSID_OFFSET        = 0x00010000;
+                        ^
+../fpgamem.c:26:14: warning: unused variable 'theTime' [-Wunused-variable]
+         char theTime[256];
+              ^
+../fpgamem.c: In function 'fpga_mem_read':
+../fpgamem.c:278:9: warning: unused variable 'calc_done' [-Wunused-variable]
+     int calc_done;
+         ^
+../fpgamem.c:269:20: warning: unused variable 'INNER_PRODUCT_OFFSET' [-Wunused-variable]
+     const uint32_t INNER_PRODUCT_OFFSET     = (REGRESSION_OFFSET + 0x00200000);
+                    ^
+../fpgamem.c:268:20: warning: unused variable 'CALC_COMPLETE' [-Wunused-variable]
+     const uint32_t CALC_COMPLETE            = (REGRESSION_OFFSET + 0x00000008); // write a 1 to this address to clear the interrupt
+                    ^
+../fpgamem.c:267:20: warning: unused variable 'ENABLE_CALC' [-Wunused-variable]
+     const uint32_t ENABLE_CALC              = (REGRESSION_OFFSET + 0x00000004); // write a 1 to turn on interrupts
+                    ^
+'Finished building: ../fpgamem.c'
+' '
+'Building target: hps_application'
+'Invoking: GCC C Linker'
+arm-linux-gnueabihf-gcc  -o "hps_application"  ./client.o ./fixed_point.o ./fpgamem.o ./handler_funcs.o ./logger.o ./main.o ./server.o   -lm
+'Finished building target: hps_application'
+' '

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="D:\David\av_soc_devkit_ghrd_modded\EELE488\software\hostpc\file_transfer_ui" key="OUTSIDE_LOCATION"/>
+	</section>
 	<section name="ExternalProjectImportWizard">
 	</section>
 </section>
