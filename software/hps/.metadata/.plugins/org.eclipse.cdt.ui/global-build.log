@@ -1,9 +1,0 @@
-13:48:40 **** Incremental Build of configuration Debug for project file_transfer_ui ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
-In file included from ..\main.h:22:0,
-                 from ..\main.c:8:
-..\system.h:30:22: fatal error: sys/mman.h: No such file or directory
- #include <sys/mman.h>
-                      ^
-compilation terminated.

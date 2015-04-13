@@ -212,47 +212,47 @@ int client(char * argv)
 //         }
 //         record("Received classification coefficient data.\n");
 //     }
-//     else if(strcmp(buf,"dark") == 0)
-//     {
-//          /* Receive Data */
-//
-//        datacube * dark_cube = malloc(sizeof (datacube));
-//        dark_cube->lines = 30;
-//        dark_cube->bands = 240;
-//        dark_cube->samples = 640;
-//        int num_values = dark_cube->bands * dark_cube->samples;
-//
-//        dark_matrix = (uint32_t **) malloc(num_values * sizeof (uint32_t));
-//        for (i = 0; i < dark_cube->bands; i++) {
-//            dark_matrix[i] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint32_t));
-//         }
-//         /* For each band */
-//             for(i = 0; i < 240; i++)
-//             {
-//                if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * dark_cube->samples, 0)) == -1) {
-//                perror("recv");
-//                exit(1);
-//                }
-//                printf("class data client: received numbytes '%d' should be 2560\n",numbytes);// record(msg);
-//
-//
-//
-//                n = 0;
-//                count = 0;
-//                while(n < numbytes)
-//                {
-//                        number = buf[n++]; number = number << 8;
-//                        number = number + buf[n++]; number = number << 8;
-//                        number = number + buf[n++]; number = number << 8;
-//                        number = number + buf[n++];
-//                        dark_matrix[i][count] = number;
-//
-//                        count++;
-//                }
-//             }
-//
-//         record("Received dark datacube data.\n");
-//     }
+     else if(strcmp(buf,"dark") == 0)
+     {
+          /* Receive Data */
+
+        datacube * dark_cube = malloc(sizeof (datacube));
+        //dark_cube->lines = 30;
+        dark_cube->bands = 240;
+        dark_cube->samples = 640;
+        int num_values = dark_cube->bands * dark_cube->samples;
+
+        dark_matrix = (uint32_t **) malloc(num_values * sizeof (uint32_t)); // allocate 4 * 240 * 640 bytes
+        for (i = 0; i < dark_cube->bands; i++) {
+            dark_matrix[i] = (uint32_t *) malloc(dark_cube->samples * sizeof (uint32_t));
+         }
+         /* For each band */
+             for(i = 0; i < 240; i++)
+             {
+                if ((numbytes = recv(sockfd, buf,  sizeof(uint32_t) * dark_cube->samples, 0)) == -1) {
+                perror("recv");
+                exit(1);
+                }
+                printf("class data client: received numbytes '%d' should be 2560\n",numbytes);// record(msg);
+
+
+
+                n = 0;
+                count = 0;
+                while(n < numbytes)
+                {
+                        number = buf[n++]; number = number << 8;
+                        number = number + buf[n++]; number = number << 8;
+                        number = number + buf[n++]; number = number << 8;
+                        number = number + buf[n++];
+                        dark_matrix[i][count] = number;
+
+                        count++;
+                }
+             }
+
+         record("Received dark datacube data.\n");
+     }
 //     else if(strcmp(buf,"response") != 0)
 //     {
 //         record("Received response datacube data.\n");

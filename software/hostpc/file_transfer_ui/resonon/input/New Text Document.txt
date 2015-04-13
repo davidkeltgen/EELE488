@@ -1,0 +1,2 @@
+Our system is designed to classify pixels for one line, opposed to the 30 given in the datacube files from resonon. The capability does exist to average out the values over
+the 30 lines, but for now we will just keep the first line, and remove the other 29. 

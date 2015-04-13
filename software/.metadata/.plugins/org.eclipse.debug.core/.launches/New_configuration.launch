@@ -80,7 +80,7 @@
 <booleanAttribute key="HOST_WORKING_DIR_USE_DEFAULT" value="true"/>
 <booleanAttribute key="KEY_COMMANDS_AFTER_CONNECT" value="false"/>
 <stringAttribute key="KEY_COMMANDS_AFTER_CONNECT_TEXT" value=""/>
-<stringAttribute key="RSE_CONFIGURATION" value="153.90.120.211"/>
+<stringAttribute key="RSE_CONFIGURATION" value="153.90.120.237"/>
 <booleanAttribute key="RSE_USE_HOSTNAME" value="true"/>
 <stringAttribute key="TCP_DISABLE_EXTENDED_MODE" value="false"/>
 <booleanAttribute key="TCP_KILL_ON_EXIT" value="false"/>

@@ -16,9 +16,9 @@ int main(int argc, char** argv) {
     int var, i, j;
 
     /* get data*/
-    server();
+    //server();
     /* Give client the IP of the server*/
-    var = client(argv[1]);
+    //var = client(argv[1]);
 
 
     //sendAck();
