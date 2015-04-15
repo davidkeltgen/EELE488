@@ -15,10 +15,10 @@ int main(int argc, char** argv) {
     record("MAIN: Program started.\n");
     int var, i, j;
 
-    /* get data*/
-    //server();
-    /* Give client the IP of the server*/
-    //var = client(argv[1]);
+    /* get data */
+    server();
+    /* Give client the IP of the server */
+    var = client(argv[1]);
 
 
     //sendAck();

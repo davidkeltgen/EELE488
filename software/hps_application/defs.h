@@ -29,7 +29,7 @@ classes
 };
 
 uint32_t standards_fixed[STANDARDS_MATRIX_SIZE];
-uint32_t class_fixed[CLASS_MATRIX_SIZE][NUM_CLASSES];
+uint32_t class_fixed[CLASS_MATRIX_SIZE];//[NUM_CLASSES];
 uint32_t means_fixed[MEANS_MATRIX_SIZE];
 
 
@@ -85,10 +85,11 @@ datacube * response_cube;
 
 /*NOTE: need to create 16 bit datatype to make this program portable*/
 /* dark matrix */
-uint32_t ** dark_matrix;
+//uint32_t ** dark_matrix;
+uint32_t dark_matrix[2048][512];
 /* response matrix */
-uint32_t ** response_matrix;
-
+//uint32_t ** response_matrix;
+uint32_t response_matrix[2048][512];
 
 #ifdef	__cplusplus
 }

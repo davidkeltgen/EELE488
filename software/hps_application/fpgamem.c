@@ -47,31 +47,31 @@ int fpga_mem_write(void)
     //const uint32_t COUNTER_OFFSET           = (REGRESSION_OFFSET + 0x001352C8); // 54450 registers * 4 bytes per register
 //    const uint32_t COUNTER_OFFSET           = (REGRESSION_OFFSET + 0x00000043);   																			// plus 0x00100000 offset
 //
-//	off_t target = FPGA_BASE;
-//
-//	record("Going to open mem\n");
-//
-//	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1)
-//		FATAL;
-//	record("FPGABLOCKMEM: /dev/mem opened.\n"); fflush(stdout);
-//
-//        /* Memory map the regression component.*/
-//        /* Will be used for means, standard deviation, coefficients*/
-//	map_base = mmap(0, REGRESSION_MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~REGRESSION_MAP_MASK);
-//	//map_base = mmap(0, 0x10100, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target);
-//
-//	if(map_base == (void *) -1)
-//		FATAL;
-//	sprintf(msg, "FPGAMEM: Memory mapped at address %p.\n", map_base); fflush(stdout); record(msg);
-//
-//	virt_addr = map_base + (target & REGRESSION_MAP_MASK);
+	off_t target = FPGA_BASE;
+
+	record("Going to open mem\n");
+
+	if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1)
+		FATAL;
+	record("FPGABLOCKMEM: /dev/mem opened.\n"); fflush(stdout);
+
+        /* Memory map the regression component.*/
+        /* Will be used for means, standard deviation, coefficients*/
+	map_base = mmap(0, REGRESSION_MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target & ~REGRESSION_MAP_MASK);
+	//map_base = mmap(0, 0x10100, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target);
+
+	if(map_base == (void *) -1)
+		FATAL;
+	sprintf(msg, "FPGAMEM: Memory mapped at address %p.\n", map_base); fflush(stdout); record(msg);
+
+	virt_addr = map_base + (target & REGRESSION_MAP_MASK);
 
 	// Attempt to read the system ID peripheral
-	//uint32_t sysid = (*((unsigned long*) (virt_addr+FPGA_SYSID_OFFSET)) ) ;
-	//sprintf(msg, "FPGAMEM: LWFPGA Slave => System ID Peripheral value = 0x%x.\n", (unsigned int)sysid); record(msg);
+	uint32_t sysid = (*((unsigned long*) (virt_addr+FPGA_SYSID_OFFSET)) ) ;
+	sprintf(msg, "FPGAMEM: LWFPGA Slave => System ID Peripheral value = 0x%x.\n", (unsigned int)sysid); record(msg);
 
 	record("FPGAMEM: Writing to memory ...\n");
-	//void* access_addr;
+	void* access_addr;
 
         /*micro time*/
         struct timeval tv;
@@ -167,21 +167,29 @@ int fpga_mem_write(void)
         sprintf(msg, "FPGAMEM: Time to Write: %f ms\n", (usec2 - usec1) / 1000.0 ); record(msg);
         sprintf(msg, "FPGAMEM: Time to Read : %f ms\n\n", (usec3 - usec2) / 1000.0); record(msg);
 
-//        for( rdidx = 0 ; rdidx < MEANS_MATRIX_SIZE; rdidx++) {
+        for( rdidx = 0 ; rdidx < MEANS_MATRIX_SIZE; rdidx++) {
 //
 //                /*access address will range from 0x40000 to 0x80000*/
-//        		access_addr = (virt_addr + (MEANS_OFFSET + (rdidx * 4)));
-//        		readarray[rdidx] = *((unsigned long*) (access_addr));
-//                sprintf(msg,"means[%d]: %08X, %08X \n", rdidx, means_fixed[rdidx], readarray[rdidx]); record(msg);
-//        }
+        		access_addr = (virt_addr + (MEANS_OFFSET + (rdidx * 4)));
+        		readarray[rdidx] = *((unsigned long*) (access_addr));
+                sprintf(msg,"means[%d]: %08X\n", rdidx, means_fixed[rdidx]); record(msg);
+        }
 //
-//        for( rdidx = 0 ; rdidx < STANDARDS_MATRIX_SIZE; rdidx++) {
+        for( rdidx = 0 ; rdidx < STANDARDS_MATRIX_SIZE; rdidx++) {
 //
-//                /*access address will range from 0x40000 to 0x80000*/
-//        		access_addr = (virt_addr + (STANDARDS_OFFSET + (rdidx * 4)));
-//        		readarray[rdidx] = *((unsigned long*) (access_addr));
-//                sprintf(msg,"standards[%d]: %08X, %08X \n", rdidx, standards_fixed[rdidx], readarray[rdidx]); record(msg);
-//        }
+//              /*access address will range from 0x40000 to 0x80000*/
+        		access_addr = (virt_addr + (STANDARDS_OFFSET + (rdidx * 4)));
+        		readarray[rdidx] = *((unsigned long*) (access_addr));
+              sprintf(msg,"standards[%d]: %08X, %08X \n", rdidx, standards_fixed[rdidx], readarray[rdidx]); record(msg);
+        }
+
+        for( rdidx = 0 ; rdidx < CLASS_MATRIX_SIZE; rdidx++) {
+//
+//              /*access address will range from 0x40000 to 0x80000*/
+        		access_addr = (virt_addr + (CLASS_OFFSET + (rdidx * 4)));
+        		readarray[rdidx] = *((unsigned long*) (access_addr));
+              sprintf(msg,"standards[%d]: %08X, %08X \n", rdidx, standards_fixed[rdidx], readarray[rdidx]); record(msg);
+        }
 //
 //		access_addr = (virt_addr + (ENABLE_OFFSET));
 //		uint32_t classes = *((unsigned long*) (access_addr));
@@ -237,6 +245,18 @@ int fpga_mem_write(void)
 //    	close(fd);
 
         /* Write to DRAM */
+        int j;
+        for( i = 0 ; i < 1; i++) {
+        	for( j = 0; j < 512; j++ )
+        	{
+//              /*access address will range from 0x40000 to 0x80000*/
+//        		access_addr = (virt_addr + (STANDARDS_OFFSET + (rdidx * 4)));
+//        		readarray[rdidx] = *((unsigned long*) (access_addr));
+//              sprintf(msg,"standards[%d]: %08X, %08X \n", rdidx, standards_fixed[rdidx], readarray[rdidx]); record(msg);0
+        	sprintf(msg,"dark    [%d][%d]: %08X \n", i, j, dark_matrix[i][j]); record(msg);
+        	sprintf(msg,"response[%d][%d]: %08X \n", i, j, response_matrix[i][j]); record(msg);
+        	}
+        }
 
     	int initadr, x, y, z, a, fc, foo;
     	initadr = 0;

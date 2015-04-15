@@ -1,4 +1,4 @@
-13:32:22 **** Incremental Build of configuration Debug for project hps_application ****
+13:25:54 **** Incremental Build of configuration Debug for project hps_application ****
 make all 
 'Building file: ../fpgamem.c'
 'Invoking: GCC C Compiler'
@@ -7,10 +7,10 @@ arm-linux-gnueabihf-gcc -I"D:\altera\14.0\embedded\ip\altera\hps\altera_hps\hwli
 ../fpgamem.c:80:9: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
          gettimeofday(&tv, &tz);
          ^
-../fpgamem.c:261:9: warning: implicit declaration of function 'write_ablk' [-Wimplicit-function-declaration]
+../fpgamem.c:283:9: warning: implicit declaration of function 'write_ablk' [-Wimplicit-function-declaration]
          write_ablk(virtual_base,64,3);
          ^
-../fpgamem.c:296:15: warning: implicit declaration of function 'read_ablk' [-Wimplicit-function-declaration]
+../fpgamem.c:318:15: warning: implicit declaration of function 'read_ablk' [-Wimplicit-function-declaration]
                z = read_ablk(virtual_base,20);
                ^
 ../fpgamem.c:140:13: warning: unused variable 'readarray' [-Wunused-variable]
@@ -49,9 +49,6 @@ arm-linux-gnueabihf-gcc -I"D:\altera\14.0\embedded\ip\altera\hps\altera_hps\hwli
 ../fpgamem.c:33:8: warning: unused variable 'map_base' [-Wunused-variable]
   void *map_base = NULL, *virt_addr = NULL;
         ^
-../fpgamem.c:30:6: warning: unused variable 'rdidx' [-Wunused-variable]
-  int rdidx = 0;
-      ^
 ../fpgamem.c:29:6: warning: unused variable 'wridx' [-Wunused-variable]
   int wridx = 0;
       ^
@@ -59,27 +56,27 @@ arm-linux-gnueabihf-gcc -I"D:\altera\14.0\embedded\ip\altera\hps\altera_hps\hwli
          char theTime[256];
               ^
 ../fpgamem.c: In function 'fpga_mem_read':
-../fpgamem.c:357:9: warning: unused variable 'calc_done' [-Wunused-variable]
+../fpgamem.c:379:9: warning: unused variable 'calc_done' [-Wunused-variable]
      int calc_done;
          ^
-../fpgamem.c:348:20: warning: unused variable 'INNER_PRODUCT_OFFSET' [-Wunused-variable]
+../fpgamem.c:370:20: warning: unused variable 'INNER_PRODUCT_OFFSET' [-Wunused-variable]
      const uint32_t INNER_PRODUCT_OFFSET     = (REGRESSION_OFFSET + 0x00200000);
                     ^
-../fpgamem.c:347:20: warning: unused variable 'CALC_COMPLETE' [-Wunused-variable]
+../fpgamem.c:369:20: warning: unused variable 'CALC_COMPLETE' [-Wunused-variable]
      const uint32_t CALC_COMPLETE            = (REGRESSION_OFFSET + 0x00000008); // write a 1 to this address to clear the interrupt
                     ^
-../fpgamem.c:346:20: warning: unused variable 'ENABLE_CALC' [-Wunused-variable]
+../fpgamem.c:368:20: warning: unused variable 'ENABLE_CALC' [-Wunused-variable]
      const uint32_t ENABLE_CALC              = (REGRESSION_OFFSET + 0x00000004); // write a 1 to turn on interrupts
                     ^
 ../fpgamem.c: At top level:
-../fpgamem.c:394:6: warning: conflicting types for 'write_ablk' [enabled by default]
+../fpgamem.c:416:6: warning: conflicting types for 'write_ablk' [enabled by default]
  void write_ablk ( void *virtual_base ,  int addr, int data) {
       ^
-../fpgamem.c:261:9: note: previous implicit declaration of 'write_ablk' was here
+../fpgamem.c:283:9: note: previous implicit declaration of 'write_ablk' was here
          write_ablk(virtual_base,64,3);
          ^
 ../fpgamem.c: In function 'fpga_mem_write':
-../fpgamem.c:294:14: warning: 'fc' may be used uninitialized in this function [-Wmaybe-uninitialized]
+../fpgamem.c:316:14: warning: 'fc' may be used uninitialized in this function [-Wmaybe-uninitialized]
              z=fc;
               ^
 'Finished building: ../fpgamem.c'
